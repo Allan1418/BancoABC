@@ -3,7 +3,7 @@ package bancoabc;
 /**
  * Una clase para representar una cola.
  *
- * @param <tipo> El tipo de elementos en la cola.
+ * @param <tipo> El tipo de elemento que almacena la cola.
  */
 public class Cola<tipo> {
 
@@ -56,6 +56,9 @@ public class Cola<tipo> {
      * Pone en cola un nuevo elemento al final de la cola.
      *
      * @param dato El elemento a poner en la cola.
+     * 
+     * se aumenta el atributo size en 1 para llevar un control del tamaño de la
+     * cola
      */
     public void ingresarACola(tipo dato) {
 
@@ -76,6 +79,9 @@ public class Cola<tipo> {
      * Quita de la cola el primer elemento.
      *
      * @return El primer elemento de la cola, o nulo si la cola está vacía.
+     * 
+     * se disminuye el atributo size en 1 para llevar un control del tamaño de la
+     * cola
      */
     public tipo sacarDeCola() {
         if (this.frente != null) {

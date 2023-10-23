@@ -4,9 +4,8 @@ package bancoabc;
 /**
  * Una clase para representar una pila.
  *
- * @param <tipo> El tipo de elementos en la pila.
+ * @param <tipo> El tipo de elemento que almacena la pila.
  */
-
 public class Pila<tipo> {
     
     private Nodo cima;

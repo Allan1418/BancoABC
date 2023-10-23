@@ -2,9 +2,9 @@
 package bancoabc;
 
 /**
- * Una clase para representar una cola.
+ * Clase Nodo para crear estructuras de datos con dos atributos: enlace y dato.
  *
- * @param <tipo> El tipo de elementos que se guardara en la cola.
+ * @param <tipo> El tipo de elementos que se guardara en el Nodo.
  */
 public class Nodo<tipo> {
 
@@ -27,6 +27,10 @@ public class Nodo<tipo> {
         this.enlace = enlace;
     }
 
+    /**
+     * crea un objeto de tipo Nodo
+     * @param dato la informacion que guarda el nodo.
+     */
     public Nodo(tipo dato) {
         this.dato = dato;
     }

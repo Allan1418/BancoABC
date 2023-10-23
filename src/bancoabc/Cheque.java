@@ -55,7 +55,7 @@ public class Cheque {
     //Constructores
 
     /**
-     * Crea un objeto Cheque sin valores iniciales.
+     * Crea un objeto Cheque con los valores por defecto de cada atributo.
      */
     public Cheque() {
     }
@@ -65,6 +65,10 @@ public class Cheque {
      *
      * @param nombre El nombre del titular del cheque.
      * @param monto El monto del cheque.
+     * 
+     * atributo date se establece con la fecha actual del sistema
+     * atributo numero se establece con la variable estatica contador
+     * se suma 1 a la varible estatica contador
      */
     public Cheque(String nombre, double monto) {
         this.nombre = nombre;
@@ -77,7 +81,10 @@ public class Cheque {
 
     
     //Otros Metodos
-
+    
+    /**
+     * @return string en formato con todos los atributos de la clase
+     */
     @Override
     public String toString() {
         return "Numero[" + numero + "] Nombre[" + nombre + "] Fecha[" + date + "] Monto[" + monto + "]";

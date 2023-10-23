@@ -65,17 +65,19 @@ public class Ficha {
     //Constructores
     
     /**
-     * Crea un objeto Cheque sin valores iniciales.
+     * Crea un objeto Ficha con los valores por defecto de cada atributo.
      */
     public Ficha() {
     }
 
     /**
-     * Construye un nuevo ticket con los valores dados.
+     * Crea un objeto Ficha con los valores dados.
      *
      * @param nombre El nombre del cliente.
      * @param cedula El número de identificación del cliente.
-     * @param preferencial Si el cliente es un cliente prioritario o normal.
+     * @param preferencial Si el cliente es un cliente preferencial (true) o normal (false).
+     * 
+     * atributo llegada se obtiene del la fecha actual del sistema
      */
     public Ficha(String nombre, String cedula, boolean preferencial) {
 
@@ -94,6 +96,11 @@ public class Ficha {
     }
 
     //Otros Metodos
+    
+    /**
+     * @return string en formato con todos los atributos de la clase si es preferencial
+     * la string es naranja si no la string es verde
+     */
     @Override
     public String toString() {
         String verde = "\u001B[32m";

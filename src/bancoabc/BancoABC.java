@@ -1,11 +1,6 @@
 
 package bancoabc;
 
-import bancoabc.Cheque;
-import bancoabc.Cola;
-import bancoabc.Comun;
-import bancoabc.Ficha;
-import bancoabc.Pila;
 import javax.swing.JOptionPane;
 
 /**
@@ -16,25 +11,59 @@ public class BancoABC {
 
     //Variables Globales
     
-    
+    /**
+     * variable global que almacena la cantidad de cajas de la sucursal
+     * se inicializa en 0
+     */
     public static int cantcajas = 0;
-
+    
+    /**
+     * variable global que almacena los cheques del sistema
+     * se establece el tipo de la pila en objetos de tipo Cheque
+     */
     public static Pila<Cheque> cheques = new Pila<>();
-
+    
+    /**
+     * variable global que almacena las fichas regulares del sistema
+     * se establece el tipo de la cola en objetos de tipo Ficha
+     */
     public static Cola<Ficha> fichasRegulares = new Cola<>();
+    
+    /**
+     * variable global que almacena las fichas preferenciales del sistema
+     * se establece el tipo de la cola en objetos de tipo Ficha
+     */
     public static Cola<Ficha> fichasPreferenciales = new Cola<>();
 
     //Metodo principal
     
-    
+    /**
+     * arranque del sistema
+     * se llama a la funcion menu para iniciar la ejecucion del sistema
+     * 
+     * @param args 
+     */
     public static void main(String[] args) {
 
         //arranque del sistema
         menu();
+        
+        
         //Pruebas
+        
+        
+        
+        
     }
+    
+    //Metodos de Menu
 
     /**
+     * implementa el menu principal y le pregunta la cantidad de cajas al usuario.
+     * 
+     * se pregunta al usuario la cantidad de cajas validando que esten entre 3 y 5
+     * y se guarda la eleccion del usuario en la variable global cantcajas
+     * 
      * Muestra el menú principal de la aplicación y permite al usuario
      * seleccionar diferentes opciones.
      */
@@ -78,8 +107,6 @@ public class BancoABC {
 
         }
     }
-
-    // Métodos de operaciones con cheques
     
     /**
      * Muestra un menú de opciones para la gestión de cheques por parte de la
@@ -169,9 +196,9 @@ public class BancoABC {
 
     //Metodos de opcion
     
-    
     /**
      * Crea un nuevo cheque y lo agrega a la pila de cheques.
+     * pregunta al usuario el titular del cheque y el monto.
      */
     public static void crearCheque() {
         String preNombre, preMonto;
@@ -213,7 +240,7 @@ public class BancoABC {
     }
 
     /**
-     * Imprime la lista de cheques pendientes en la pila de cheques. Muestra una
+     * Imprime en consola la lista de cheques pendientes en la pila de cheques. Muestra una
      * cabecera con el título "Cheques Pendientes," seguido de la lista de
      * cheques y una línea divisoria.
      */
@@ -226,6 +253,7 @@ public class BancoABC {
     /**
      * Crea una nueva ficha de cliente y la agrega a la cola correspondiente
      * (preferencial o regular).
+     * Se le pregunta al usuario el tipo de ficha, nombre y cedula.
      */
     public static void crearFicha() {
 
@@ -274,6 +302,9 @@ public class BancoABC {
     /**
      * Prepara y llama a un usuario de las cajas, dependiendo de la
      * disponibilidad y el tipo de ficha.
+     * se pregunta al usuario el numero de caja que atiende validando que exista la caja.
+     * dependiendo del tipo de caja y la cantidad de fichas pendientes se atiende
+     * una ficha regular o preferncial
      */
     public static void prepararFicha() {
 
@@ -321,10 +352,11 @@ public class BancoABC {
     }
 
     /**
-     * Atiende a un cliente de acuerdo con la caja asignada y el tipo de ficha.
+     * Atiende a un cliente saquandolo de la cola respectiva 
+     * de acuerdo con la caja asignada y el tipo de ficha.
      *
      * @param numCaja Número de caja asignada al cliente
-     * @param preferencial Indicador de si la ficha es preferencial o no
+     * @param preferencial Indicador de si la ficha es preferencial (true) o no (false)
      */
     public static void atenderFicha(int numCaja, boolean preferencial) {
 
@@ -344,7 +376,7 @@ public class BancoABC {
     }
 
     /**
-     * Muestra las fichas pendientes en las colas, tanto regulares como
+     * Imprime en consola las fichas pendientes en las colas, tanto regulares como
      * preferenciales.
      */
     public static void imprFichas() {
