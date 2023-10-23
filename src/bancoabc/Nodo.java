@@ -1,9 +1,13 @@
 
 package bancoabc;
 
-
+/**
+ * Una clase para representar una cola.
+ *
+ * @param <tipo> El tipo de elementos que se guardara en la cola.
+ */
 public class Nodo<tipo> {
-    
+
     private tipo dato;
     private Nodo enlace;
 
@@ -26,8 +30,5 @@ public class Nodo<tipo> {
     public Nodo(tipo dato) {
         this.dato = dato;
     }
-    
-    
-    
-    
+
 }
