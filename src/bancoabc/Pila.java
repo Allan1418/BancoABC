@@ -1,7 +1,11 @@
 
 package bancoabc;
 
-
+/**
+ * Una clase para representar una pila.
+ *
+ * @param <tipo> El tipo de elemento que almacena la pila.
+ */
 public class Pila<tipo> {
     
     private Nodo cima;
@@ -19,7 +23,11 @@ public class Pila<tipo> {
     }
     
     
-    
+    /**
+     * Empuja un nuevo elemento a la pila.
+     *
+     * @param dato El elemento a empujar.
+     */
     public void push(tipo dato) {
         
         Nodo<tipo> nuevo = new Nodo<>(dato);
@@ -34,6 +42,11 @@ public class Pila<tipo> {
         
     }
     
+    /**
+     * Saca el elemento superior de la pila.
+     *
+     * @return El elemento superior de la pila, o nulo si la pila está vacía.
+     */
     public tipo pop(){
         
         if (cima != null) {
@@ -50,6 +63,9 @@ public class Pila<tipo> {
     }
     
     
+    /**
+     * Imprime el contenido de la pila en la consola.
+     */
     public void impPila(){
         Nodo aux = cima;
         
