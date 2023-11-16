@@ -8,15 +8,12 @@ package bancoabc;
  */
 public class Pila<tipo> {
     
-    private Nodo cima;
+    private Nodo<tipo> cima;
 
     public Pila() {
         this.cima = null;
     }
-
-    public Pila(Pila p) {
-        this.cima = p.cima;
-    }
+    
 
     public boolean isVacia() {
         return this.cima == null;
@@ -47,12 +44,11 @@ public class Pila<tipo> {
      *
      * @return El elemento superior de la pila, o nulo si la pila está vacía.
      */
+
     public tipo pop(){
         
         if (cima != null) {
-            
-            @SuppressWarnings("unchecked")
-            tipo aux = (tipo) cima.getDato();
+            tipo aux = cima.getDato();
             cima = cima.getEnlace();
             return aux;
             

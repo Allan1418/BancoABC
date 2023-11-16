@@ -10,12 +10,12 @@ public class Cola<tipo> {
     /**
      * El primer nodo de la cola.
      */
-    private Nodo frente;
+    private Nodo<tipo> frente;
 
     /**
      * El ultimo nodo de la cola.
      */
-    private Nodo ultimo;
+    private Nodo<tipo> ultimo;
 
     /**
      * El tamaño de la cola.
@@ -37,16 +37,6 @@ public class Cola<tipo> {
     }
 
     
-    /**
-     * Crea una nueva cola copiando los valores del objeto Cola proporcionado.
-     *
-     * @param c cola desde la cual se copiarán los valores.
-     */
-    public Cola(Cola c) {
-        this.frente = c.frente;
-        this.ultimo = c.ultimo;
-        this.size = c.size;
-    }
 
     public boolean isVacia() {
         return this.frente == null;
@@ -83,10 +73,10 @@ public class Cola<tipo> {
      * se disminuye el atributo size en 1 para llevar un control del tamaño de la
      * cola
      */
+    
     public tipo sacarDeCola() {
         if (this.frente != null) {
-            @SuppressWarnings("unchecked")
-            tipo aux = (tipo) this.frente.getDato();
+            tipo aux = this.frente.getDato();
             this.frente = this.frente.getEnlace();
             size--;
             return aux;

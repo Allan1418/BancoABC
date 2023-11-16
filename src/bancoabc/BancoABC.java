@@ -1,6 +1,8 @@
 
 package bancoabc;
 
+import java.sql.Timestamp;
+import java.util.Calendar;
 import javax.swing.JOptionPane;
 
 /**
@@ -12,10 +14,11 @@ public class BancoABC {
     //Variables Globales
     
     /**
+     * -m
      * variable global que almacena la cantidad de cajas de la sucursal
      * se inicializa en 0
      */
-    public static int cantcajas = 0;
+    public static ListaCajeros cajeros;
     
     /**
      * variable global que almacena los cheques del sistema
@@ -44,21 +47,92 @@ public class BancoABC {
      * @param args 
      */
     public static void main(String[] args) {
-
-        //arranque del sistema
-        menu();
-        
         
         //Pruebas
         
         
         
         
+        
+        
+        
+        //arranque del sistema
+        //defCajas();
+        
+        //arranque con Simulacion montada
+        //montarSimulacion();
+        //menu();
+        
+    }
+    
+    public static void montarSimulacion() {
+        BitacoraFichas prueba = new BitacoraFichas();
+        Calendar calendar = Calendar.getInstance();
+        
+        calendar.set(2023, Calendar.NOVEMBER, 1, 0, 0, 0);
+        Ficha a = new Ficha("a", "1", true);
+        a.setAtencion(new Timestamp(calendar.getTimeInMillis()));
+        
+        calendar.set(2023, Calendar.NOVEMBER, 2, 0, 0, 0);
+        Ficha b = new Ficha("b", "2", true);
+        b.setAtencion(new Timestamp(calendar.getTimeInMillis()));
+        
+        calendar.set(2023, Calendar.NOVEMBER, 3, 0, 0, 0);
+        Ficha c = new Ficha("c", "3", true);
+        c.setAtencion(new Timestamp(calendar.getTimeInMillis()));
+        
+        calendar.set(2023, Calendar.NOVEMBER, 4, 0, 0, 0);
+        Ficha d = new Ficha("d", "4", true);
+        d.setAtencion(new Timestamp(calendar.getTimeInMillis()));
+        
+        calendar.set(2023, Calendar.NOVEMBER, 5, 0, 0, 0);
+        Ficha e = new Ficha("e", "1", false);
+        e.setAtencion(new Timestamp(calendar.getTimeInMillis()));
+        
+        calendar.set(2023, Calendar.NOVEMBER, 6, 0, 0, 0);
+        Ficha f = new Ficha("f", "2", false);
+        f.setAtencion(new Timestamp(calendar.getTimeInMillis()));
+        
+        calendar.set(2023, Calendar.NOVEMBER, 7, 0, 0, 0);
+        Ficha g = new Ficha("g", "3", false);
+        g.setAtencion(new Timestamp(calendar.getTimeInMillis()));
+        
+        calendar.set(2023, Calendar.NOVEMBER, 8, 0, 0, 0);
+        Ficha h = new Ficha("h", "4", false);
+        h.setAtencion(new Timestamp(calendar.getTimeInMillis()));
+        
+        prueba.insertar(b);
+        prueba.insertar(h);
+        prueba.insertar(a);
+        
+        prueba.insertar(d);
+        prueba.insertar(g);
+        prueba.insertar(f);
+        prueba.insertar(e);
+        prueba.insertar(c);
+        prueba.imprimir();
+        
+        System.out.println("------");
+        prueba.imprimirAlreves();
     }
     
     //Metodos de Menu
-
     /**
+     * -m
+     */
+    public static void defCajas(){
+        String precajas = Comun.regexConfirm("[3-5]", "indique la cantidad de cajas \nPara abrir la sucursal bancaria \n(3-5)", "Solo entre 3 a 5 cajas");
+        if (precajas == null) {
+            return;
+        }
+
+        cajeros = new ListaCajeros(Integer.parseInt(precajas));
+        
+        menu();
+    }
+    
+    /**
+     * -m
      * implementa el menu principal y le pregunta la cantidad de cajas al usuario.
      * 
      * se pregunta al usuario la cantidad de cajas validando que esten entre 3 y 5
@@ -68,14 +142,7 @@ public class BancoABC {
      * seleccionar diferentes opciones.
      */
     public static void menu() {
-
-        String precajas = Comun.regexConfirm("[3-5]", "indique la cantidad de cajas \nPara abrir la sucursal bancaria \n(3-5)", "Solo entre 3 a 5 cajas");
-        if (precajas == null) {
-            return;
-        }
-
-        cantcajas = Integer.parseInt(precajas);
-
+        
         String[] botones = {"Gestionar Cheques Gerencia", "Listar Cajas Activas", "Gestionar Usuarios de Cajas", "Ayuda", "SALIR"};
         int opcion;
         OUTER:
@@ -93,7 +160,7 @@ public class BancoABC {
                     opChequesGerencia();
                     break;
                 case 1:
-                    JOptionPane.showMessageDialog(null, "La sucursal actual del banco ABC tiene " + cantcajas + " cajas activas");
+                    JOptionPane.showMessageDialog(null, "La sucursal actual del banco ABC tiene " + cajeros + " cajas activas");
                     break;
                 case 2:
                     opUsuariosCajas();
@@ -300,6 +367,7 @@ public class BancoABC {
     }
 
     /**
+     * -m
      * Prepara y llama a un usuario de las cajas, dependiendo de la
      * disponibilidad y el tipo de ficha.
      * se pregunta al usuario el numero de caja que atiende validando que exista la caja.
@@ -313,7 +381,7 @@ public class BancoABC {
             return;
         }
 
-        String regex = "[1-" + String.valueOf(cantcajas) + "]";
+        String regex = "[1-" + String.valueOf(cajeros.getSize()) + "]";
         String preCaja = Comun.regexConfirm(regex, "Ingrese el numero de caja que atiende", "No existe caja!");
         if (preCaja == null) {
             return;
@@ -352,6 +420,7 @@ public class BancoABC {
     }
 
     /**
+     * -m
      * Atiende a un cliente saquandolo de la cola respectiva 
      * de acuerdo con la caja asignada y el tipo de ficha.
      *
@@ -373,9 +442,12 @@ public class BancoABC {
         m = "Ficha #" + actual.getNumero() + " con cédula " + actual.getCedula() + " pasar a caja " + numCaja;
 
         JOptionPane.showMessageDialog(null, m);
+        
+        cajeros.buscar(numCaja).setAtendiendo(actual);
     }
 
     /**
+     * -m
      * Imprime en consola las fichas pendientes en las colas, tanto regulares como
      * preferenciales.
      */
@@ -385,6 +457,8 @@ public class BancoABC {
         fichasRegulares.imprCola();
         System.out.println("\nFichas Preferenciales:");
         fichasPreferenciales.imprCola();
+        System.out.println("\nFichas en Atencion:");
+        cajeros.imprimirAtendiendo();
         System.out.println("\n-----------------------");
     }
 

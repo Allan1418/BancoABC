@@ -33,5 +33,30 @@ public class Comun {
             }
         }
     }
+    
+    public static int mostrarBotones(String[] opciones, String ask) {
+        
+        //revisar
+        if (opciones == null || opciones.length == 0) {
+            throw new IllegalArgumentException("El array de opciones no puede ser nulo o vacío.");
+        }
+        
+        String can = "Cancelar";
+        
+        
+        
+        int opt = JOptionPane.showOptionDialog(
+                null,
+                ask,
+                "Banco ABC",
+                JOptionPane.DEFAULT_OPTION,
+                JOptionPane.QUESTION_MESSAGE,
+                null,
+                opciones,
+                opciones[0]);
+        
+        
+        return opt;
+    }
 
 }

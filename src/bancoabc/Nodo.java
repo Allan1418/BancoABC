@@ -9,7 +9,7 @@ package bancoabc;
 public class Nodo<tipo> {
 
     private tipo dato;
-    private Nodo enlace;
+    private Nodo<tipo> enlace;
 
     public tipo getDato() {
         return dato;
@@ -19,11 +19,11 @@ public class Nodo<tipo> {
         this.dato = dato;
     }
 
-    public Nodo getEnlace() {
+    public Nodo<tipo> getEnlace() {
         return enlace;
     }
 
-    public void setEnlace(Nodo enlace) {
+    public void setEnlace(Nodo<tipo> enlace) {
         this.enlace = enlace;
     }
 

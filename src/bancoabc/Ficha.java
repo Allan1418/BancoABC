@@ -15,6 +15,7 @@ public class Ficha {
     private String cedula;
     private String nombre;
     private Timestamp llegada;
+    private Timestamp atencion;
     private boolean preferencial;
 
     //Metodos Get y set
@@ -52,6 +53,18 @@ public class Ficha {
 
     public void setLlegada(Timestamp llegada) {
         this.llegada = llegada;
+    }
+
+    public Timestamp getAtencion() {
+        return atencion;
+    }
+
+    public void setAtencion(Timestamp atencion) {
+        this.atencion = atencion;
+    }
+    
+    public String getAtencionStr() {
+        return new SimpleDateFormat("dd-MM-yyyy HH:mm").format(this.atencion);
     }
 
     public boolean isPreferencial() {
@@ -92,24 +105,26 @@ public class Ficha {
         this.nombre = nombre;
         this.cedula = cedula;
         this.llegada = new Timestamp(System.currentTimeMillis());
+        this.atencion = null;
         this.preferencial = preferencial;
     }
 
     //Otros Metodos
     
     /**
+     * -m
      * @return string en formato con todos los atributos de la clase si es preferencial
      * la string es naranja si no la string es verde
      */
     @Override
     public String toString() {
         String verde = "\u001B[32m";
-        String naranja = "\u001B[33m";
+        String rojo = "\u001B[31m";
         String reset = "\u001B[0m";
         String color;
 
         if (preferencial) {
-            color = naranja;
+            color = rojo;
         } else {
             color = verde;
         }
