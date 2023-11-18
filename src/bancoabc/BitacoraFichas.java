@@ -18,6 +18,7 @@ public class BitacoraFichas {
         this.cabeza = null;
     }
     
+    
     public void insertar(Ficha nuevo) {
 
         Nodo<Ficha> nuevoNodo = new Nodo<>(nuevo);

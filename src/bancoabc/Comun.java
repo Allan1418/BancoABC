@@ -33,6 +33,8 @@ public class Comun {
             }
         }
     }
+    
+    
     /**
      * -m
      * @param opciones
@@ -47,8 +49,6 @@ public class Comun {
         }
         
         
-        
-        
         int opt = JOptionPane.showOptionDialog(
                 null,
                 ask,
@@ -57,7 +57,7 @@ public class Comun {
                 JOptionPane.QUESTION_MESSAGE,
                 null,
                 opciones,
-                opciones[0]);
+                opciones[opciones.length-1]);
         
         if (opt == opciones.length-1 && opciones[opciones.length-1] == "Volver") {
             return -1;
