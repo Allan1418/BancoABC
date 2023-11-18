@@ -33,7 +33,12 @@ public class Comun {
             }
         }
     }
-    
+    /**
+     * -m
+     * @param opciones
+     * @param ask
+     * @return 
+     */
     public static int mostrarBotones(String[] opciones, String ask) {
         
         //revisar
@@ -41,7 +46,6 @@ public class Comun {
             throw new IllegalArgumentException("El array de opciones no puede ser nulo o vacío.");
         }
         
-        String can = "Cancelar";
         
         
         
@@ -55,6 +59,9 @@ public class Comun {
                 opciones,
                 opciones[0]);
         
+        if (opt == opciones.length-1 && opciones[opciones.length-1] == "Volver") {
+            return -1;
+        }
         
         return opt;
     }

@@ -122,14 +122,23 @@ public class Ficha {
         String rojo = "\u001B[31m";
         String reset = "\u001B[0m";
         String color;
+        String m;
 
         if (preferencial) {
             color = rojo;
         } else {
             color = verde;
         }
+        
+        m = color + "Numero[" + numero + "] Nombre[" + nombre + "] Cedula[" + cedula + "] Llegada[" + getLlegadaStr() + "]";
+        
+        if (atencion != null) {
+            m += " Atencion[" + getAtencionStr() + "]";
+        }
+        
+        m += reset;
 
-        return color + "Numero[" + numero + "] Nombre[" + nombre + "] Cedula[" + cedula + "] Llegada[" + getLlegadaStr() + "]" + reset;
+        return m;
     }
 
 }

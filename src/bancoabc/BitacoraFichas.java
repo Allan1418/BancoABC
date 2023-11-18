@@ -46,26 +46,20 @@ public class BitacoraFichas {
     
     public void imprimir() {
         Nodo<Ficha> aux = cabeza;
+        
+        if (aux == null) {
+            System.out.println("Bitacora Vacia!");
+            return;
+        }
+        
         imprimir(aux);
         
     }
+    
     private void imprimir(Nodo actual) {
         if (actual != null) {
-            System.out.println(((Ficha) actual.getDato()).getAtencionStr());
+            System.out.println(((Ficha) actual.getDato()).toString());
             imprimir(actual.getEnlace());
-        }
-        
-    }
-    
-    public void imprimirAlreves() {
-        Nodo<Ficha> aux = cabeza;
-        imprimirAlreves(aux);
-        
-    }
-    private void imprimirAlreves(Nodo actual) {
-        if (actual != null) {
-            imprimirAlreves(actual.getEnlace());
-            System.out.println(((Ficha) actual.getDato()).getAtencionStr());
         }
         
     }

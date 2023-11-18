@@ -63,7 +63,7 @@ public class ListaCajeros {
             return null;
         }
         
-        while (aux.getEnlace() != null) {            
+        while (aux != null) {            
             if (aux.getDato().getId() == id) {
                 return aux.getDato();
             }
@@ -80,17 +80,21 @@ public class ListaCajeros {
         
         while (aux != null) {            
             
-            m = "Caja #" + aux.getDato().getId() + ":";
+            m = "Caja #" + aux.getDato().getId() + ": ";
             
-            m += aux.getDato().getAtendiendo().toString();
-            
-            m = m.replaceFirst("\\[\\d{2}m", "[33m");
+            if (!aux.getDato().isLibre()) {
+                m += aux.getDato().getAtendiendo().toString();
+                m = m.replaceFirst("\\[\\d{2}m", "[33m");
+            }else{
+                m += "Caja Vacia!";
+            }
             
             System.out.println(m);
             
             aux = aux.getEnlace();
         }
     }
+    
     
     public String[] getArrayStr(boolean volver, boolean todos, estTer op){
         
@@ -121,6 +125,8 @@ public class ListaCajeros {
     }
     
     
+    
+    @Deprecated
     public void imprimir(){
         Nodo aux = cabeza;
         

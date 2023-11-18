@@ -41,6 +41,7 @@ public class BancoABC {
     //Metodo principal
     
     /**
+     * -m
      * arranque del sistema
      * se llama a la funcion menu para iniciar la ejecucion del sistema
      * 
@@ -48,73 +49,172 @@ public class BancoABC {
      */
     public static void main(String[] args) {
         
-        //Pruebas
-        
-        
-        
-        
-        
-        
         
         //arranque del sistema
         //defCajas();
         
         //arranque con Simulacion montada
-        //montarSimulacion();
-        //menu();
+        montarSimulacion();
+        menu();
+        
+        //Pruebas
+        
+        
+        
         
     }
     
     public static void montarSimulacion() {
-        BitacoraFichas prueba = new BitacoraFichas();
-        Calendar calendar = Calendar.getInstance();
+
+        cajeros = new ListaCajeros(5);
         
-        calendar.set(2023, Calendar.NOVEMBER, 1, 0, 0, 0);
+
+        Calendar calendar = Calendar.getInstance();
+
+        calendar.set(2023, Calendar.NOVEMBER,0, 19, 50, 1);
         Ficha a = new Ficha("a", "1", true);
         a.setAtencion(new Timestamp(calendar.getTimeInMillis()));
-        
-        calendar.set(2023, Calendar.NOVEMBER, 2, 0, 0, 0);
-        Ficha b = new Ficha("b", "2", true);
+
+        calendar.set(2023, Calendar.NOVEMBER,0, 0, 0, 0);
+        Ficha b = new Ficha("b", "2", false);
         b.setAtencion(new Timestamp(calendar.getTimeInMillis()));
-        
-        calendar.set(2023, Calendar.NOVEMBER, 3, 0, 0, 0);
+
+        calendar.set(2023, Calendar.NOVEMBER,0, 0, 0, 0);
         Ficha c = new Ficha("c", "3", true);
         c.setAtencion(new Timestamp(calendar.getTimeInMillis()));
-        
-        calendar.set(2023, Calendar.NOVEMBER, 4, 0, 0, 0);
-        Ficha d = new Ficha("d", "4", true);
+
+        calendar.set(2023, Calendar.NOVEMBER,0, 0, 0, 0);
+        Ficha d = new Ficha("d", "4", false);
         d.setAtencion(new Timestamp(calendar.getTimeInMillis()));
-        
-        calendar.set(2023, Calendar.NOVEMBER, 5, 0, 0, 0);
-        Ficha e = new Ficha("e", "1", false);
+
+        calendar.set(2023, Calendar.NOVEMBER,0, 0, 0, 0);
+        Ficha e = new Ficha("e", "5", true);
         e.setAtencion(new Timestamp(calendar.getTimeInMillis()));
         
-        calendar.set(2023, Calendar.NOVEMBER, 6, 0, 0, 0);
-        Ficha f = new Ficha("f", "2", false);
+        calendar.set(2023, Calendar.NOVEMBER, 0,0, 0, 0);
+        Ficha f = new Ficha("f", "6", false);
         f.setAtencion(new Timestamp(calendar.getTimeInMillis()));
         
-        calendar.set(2023, Calendar.NOVEMBER, 7, 0, 0, 0);
-        Ficha g = new Ficha("g", "3", false);
+        calendar.set(2023, Calendar.NOVEMBER, 0, 0, 0, 0);
+        Ficha g = new Ficha("g", "7", true);
         g.setAtencion(new Timestamp(calendar.getTimeInMillis()));
         
-        calendar.set(2023, Calendar.NOVEMBER, 8, 0, 0, 0);
-        Ficha h = new Ficha("h", "4", false);
+        calendar.set(2023, Calendar.NOVEMBER,0, 0, 0, 0);
+        Ficha h = new Ficha("h", "8", false);
         h.setAtencion(new Timestamp(calendar.getTimeInMillis()));
         
-        prueba.insertar(b);
-        prueba.insertar(h);
-        prueba.insertar(a);
+        calendar.set(2023, Calendar.NOVEMBER,0, 0, 0, 0);
+        Ficha i = new Ficha("i", "9", true);
+        i.setAtencion(new Timestamp(calendar.getTimeInMillis()));
+
+        calendar.set(2023, Calendar.NOVEMBER,0, 0, 0, 0);
+        Ficha j = new Ficha("j", "10", false);
+        j.setAtencion(new Timestamp(calendar.getTimeInMillis()));
+
+        calendar.set(2023, Calendar.NOVEMBER,0, 0, 0, 0);
+        Ficha k = new Ficha("k", "11", true);
+        k.setAtencion(new Timestamp(calendar.getTimeInMillis()));
+
+        calendar.set(2023, Calendar.NOVEMBER,0, 0, 0, 0);
+        Ficha l = new Ficha("l", "12", false);
+        l.setAtencion(new Timestamp(calendar.getTimeInMillis()));
         
-        prueba.insertar(d);
-        prueba.insertar(g);
-        prueba.insertar(f);
-        prueba.insertar(e);
-        prueba.insertar(c);
-        prueba.imprimir();
+        calendar.set(2023, Calendar.NOVEMBER, 0,0, 0, 0);
+        Ficha m = new Ficha("m", "13", true);
+        m.setAtencion(new Timestamp(calendar.getTimeInMillis()));
         
-        System.out.println("------");
-        prueba.imprimirAlreves();
+        calendar.set(2023, Calendar.NOVEMBER, 0, 0, 0, 0);
+        Ficha n = new Ficha("n", "14", false);
+        n.setAtencion(new Timestamp(calendar.getTimeInMillis()));
+        
+        calendar.set(2023, Calendar.NOVEMBER, 0, 0, 0, 0);
+        Ficha o = new Ficha("o", "15", true);
+        o.setAtencion(new Timestamp(calendar.getTimeInMillis()));
+        
+        calendar.set(2023, Calendar.NOVEMBER, 0, 0, 0, 0);
+        Ficha p = new Ficha("p", "16", false);
+        p.setAtencion(new Timestamp(calendar.getTimeInMillis()));
+        
+
+        cajeros.buscar(1).getListaBitacora().insertar(a);
+        cajeros.buscar(2).getListaBitacora().insertar(b);
+        cajeros.buscar(3).getListaBitacora().insertar(c);
+        cajeros.buscar(4).getListaBitacora().insertar(d);
+        
+        cajeros.buscar(3).getListaBitacora().insertar(e);
+        cajeros.buscar(2).getListaBitacora().insertar(h);
+        cajeros.buscar(1).getListaBitacora().insertar(i);
+        cajeros.buscar(4).getListaBitacora().insertar(j);
+        
+        cajeros.buscar(4).getListaBitacora().insertar(k);
+        cajeros.buscar(3).getListaBitacora().insertar(l);
+        cajeros.buscar(1).getListaBitacora().insertar(m);
+        cajeros.buscar(2).getListaBitacora().insertar(n);
+        
+        cajeros.buscar(1).getListaBitacora().insertar(o);
+        cajeros.buscar(2).getListaBitacora().insertar(p);
+
+        
+        Ficha q = new Ficha("q", "17", true);
+        cajeros.buscar(1).setAtendiendo(q);
+        
+        Ficha r = new Ficha("r", "18", false);
+        cajeros.buscar(3).setAtendiendo(r);
+        
+        Ficha s = new Ficha("s", "19", true);
+        cajeros.buscar(4).setAtendiendo(s);
+        
+        
+        
+        Ficha t = new Ficha("t", "20", true);
+        fichasPreferenciales.ingresarACola(t);
+
+        Ficha u = new Ficha("u", "21", true);
+        fichasPreferenciales.ingresarACola(u);
+
+        Ficha v = new Ficha("v", "22", true);
+        fichasPreferenciales.ingresarACola(v);
+
+        Ficha w = new Ficha("w", "23", true);
+        fichasPreferenciales.ingresarACola(w);
+
+        Ficha x = new Ficha("x", "24", true);
+        fichasPreferenciales.ingresarACola(x);
+        
+        Ficha y = new Ficha("y", "25", true);
+        fichasPreferenciales.ingresarACola(y);
+        
+        Ficha z = new Ficha("z", "26", true);
+        fichasPreferenciales.ingresarACola(z);
+
+        
+        
+        Ficha ab = new Ficha("ab", "27", false);
+        fichasRegulares.ingresarACola(ab);
+
+        Ficha cd = new Ficha("cd", "28", false);
+        fichasRegulares.ingresarACola(cd);
+
+        Ficha fg = new Ficha("fg", "29", false);
+        fichasRegulares.ingresarACola(fg);
+
+        Ficha hi = new Ficha("hi", "30", false);
+        fichasRegulares.ingresarACola(hi);
+
+        Ficha jk = new Ficha("jk", "31", false);
+        fichasRegulares.ingresarACola(jk);
+        
+        Ficha lm = new Ficha("lm", "32", false);
+        fichasRegulares.ingresarACola(lm);
+        
+        Ficha np = new Ficha("np", "33", false);
+        fichasRegulares.ingresarACola(np);
+        
+        
+        
+
     }
+
     
     //Metodos de Menu
     /**
@@ -143,7 +243,8 @@ public class BancoABC {
      */
     public static void menu() {
         
-        String[] botones = {"Gestionar Cheques Gerencia", "Listar Cajas Activas", "Gestionar Usuarios de Cajas", "Ayuda", "SALIR"};
+        //String[] botones = {"Gestionar Cheques Gerencia", "Listar Cajas Activas", "Gestionar Usuarios de Cajas", "Ayuda", "SALIR"};
+        String[] botones = {"Gestionar Cheques", "Listar Cajas Activas", "Gestionar Cajas", "Ayuda", "SALIR"};
         int opcion;
         OUTER:
         while (true) {
@@ -160,7 +261,7 @@ public class BancoABC {
                     opChequesGerencia();
                     break;
                 case 1:
-                    JOptionPane.showMessageDialog(null, "La sucursal actual del banco ABC tiene " + cajeros + " cajas activas");
+                    JOptionPane.showMessageDialog(null, "La sucursal actual del banco ABC tiene " + cajeros.getSize() + " cajas activas");
                     break;
                 case 2:
                     opUsuariosCajas();
@@ -214,13 +315,14 @@ public class BancoABC {
     }
 
     /**
+     * -m
      * Muestra el menú de gestión de usuarios de las cajas del banco. Las
      * opciones incluyen seleccionar una ficha, llamar a un usuario a las cajas
      * y mostrar las fichas pendientes.
      */
     public static void opUsuariosCajas() {
 
-        String[] botones = {"Seleccionar ficha", "Llamar Usuario a cajas", "Mostrar Fichas Pendientes", "SALIR"};
+        String[] botones = {"Selec ficha", "Llamar Usuario a cajas", "Mostrar Fichas Pendientes", "Cerrar Ficha", "Consultar Bitacora", "SALIR"};
         int opcion;
         OUTER:
         while (true) {
@@ -230,7 +332,7 @@ public class BancoABC {
                     JOptionPane.DEFAULT_OPTION,
                     JOptionPane.INFORMATION_MESSAGE,
                     null,
-                    botones, botones[3]);
+                    botones, botones[5]);
 
             switch (opcion) {
                 case 0:
@@ -241,6 +343,12 @@ public class BancoABC {
                     break;
                 case 2:
                     imprFichas();
+                    break;
+                case 3:
+                    cerrarFicha();
+                    break;
+                case 4:
+                    imprBitacoras();
                     break;
                 default:
                     break OUTER;
@@ -381,13 +489,14 @@ public class BancoABC {
             return;
         }
 
-        String regex = "[1-" + String.valueOf(cajeros.getSize()) + "]";
-        String preCaja = Comun.regexConfirm(regex, "Ingrese el numero de caja que atiende", "No existe caja!");
-        if (preCaja == null) {
+        String[] botones = cajeros.getArrayStr(true, false, estTer.TRUE);
+        int preCaja = Comun.mostrarBotones(botones, "Seleccione la Caja que llama");
+        if (preCaja == -1) {
             return;
         }
+        
 
-        int cajaActual = Integer.parseInt(preCaja);
+        int cajaActual = Integer.parseInt(botones[preCaja]);
 
         //caja preferencial
         if (cajaActual == 1) {
@@ -462,6 +571,68 @@ public class BancoABC {
         System.out.println("\n-----------------------");
     }
 
+    /**
+     * -m
+     */
+    public static void cerrarFicha(){
+        
+        int preCaj;
+        Cajero cajAct;
+        
+        String[] botones = cajeros.getArrayStr(true, false, estTer.FALSE);
+        
+        if (botones.length == 1) {
+            JOptionPane.showMessageDialog(null, "Ningun Cajero esta atendiendo!");
+            return;
+        }
+        
+        preCaj = Comun.mostrarBotones(botones, "Seleccione el cajero que cierra Ficha");
+        if (preCaj == -1) {
+            return;
+        }
+        
+        
+        cajAct = cajeros.buscar(Integer.parseInt(botones[preCaj]));
+        
+        cajAct.getAtendiendo().setAtencion(new Timestamp(System.currentTimeMillis()));
+        cajAct.getListaBitacora().insertar(cajAct.getAtendiendo());
+        cajAct.setAtendiendo(null);
+        
+    }
+    
+    /**
+     * -m
+     */
+    public static void imprBitacoras() {
+        int preCaj;
+        Cajero cajAct;
+        
+        String[] botones = cajeros.getArrayStr(true, true, estTer.NO_APLICA);
+        
+        preCaj = Comun.mostrarBotones(botones, "Seleccione el cajero a consultar Bitacora");
+        if (preCaj == -1) {
+            return;
+        }
+        
+        if (preCaj == botones.length-2) {
+            System.out.println("\n---Bitacora de todos los cajeros---");
+            for (int i = 0; i < cajeros.getSize(); i++) {
+                
+                cajAct = cajeros.buscar(i+1);
+                System.out.println("\nCajero #" + cajAct.getId());
+                cajAct.getListaBitacora().imprimir();
+                System.out.println("-----------------");
+                
+            }
+            return;
+        }
+        
+        cajAct = cajeros.buscar(Integer.parseInt(botones[preCaj]));
+        System.out.println("\n---Bitacora del Cajero #" + cajAct.getId() + "---");
+        cajAct.getListaBitacora().imprimir();
+        System.out.println("----------------------------");
+        
+    }
     
     //OtrosMetodos
     
