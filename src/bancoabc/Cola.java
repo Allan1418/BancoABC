@@ -50,8 +50,10 @@ public class Cola<tipo> {
     }
     
     /**
+     * parametro que retorna si la cola esta vacia o no.
      * 
-     * @return 
+     * 
+     * @return {@code true} si la cola esta vacia, {@code false} si la cola tiene contenido.
      */
     public boolean isVacia() {
         return this.frente == null;

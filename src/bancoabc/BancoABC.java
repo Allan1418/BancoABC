@@ -5,11 +5,11 @@ import java.util.Calendar;
 import javax.swing.JOptionPane;
 
 /**
- * @author Allan Nunez Brenes, Anyelo Vargas Merlo, Celeste Cerdas Hernandez 
- * 
  * Clase principal que simula una sucursal bancaria del Banco ABC.
+ * 
+ * 
+ * @author Allan Nunez Brenes, Anyelo Vargas Merlo, Celeste Cerdas Hernandez 
  */
-
 public class BancoABC {
 
 
@@ -45,12 +45,13 @@ public class BancoABC {
     //Metodo principal
     /**
      * Método principal que inicia el sistema de gestión de cajas.
-     *
-     * El método arranca el sistema configurando las cajas mediante el método
+     * El método arranca el sistema configurando las cajas mediante el método 
      * {@code defCajas()}.
      *
      * Este método contiene una simulacion para verificar el funcionamiento 
      * del sistema. solo para el manejo de desarrolladores
+     * 
+     * @param args Requisito de java
      */
     public static void main(String[] args) {
 
@@ -799,6 +800,12 @@ public class BancoABC {
     }
 
     //OtrosMetodos
+    
+    /**
+     * Requisito de javaDoc, ignorar.
+     */
+    public BancoABC() {
+    }
     
     
     
