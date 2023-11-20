@@ -3,6 +3,8 @@ package bancoabc;
 /**
  * Una clase para representar una cola.
  *
+ * @author Allan Nunez Brenes
+ * 
  * @param <tipo> El tipo de elemento que almacena la cola.
  */
 public class Cola<tipo> {
@@ -10,44 +12,47 @@ public class Cola<tipo> {
     /**
      * El primer nodo de la cola.
      */
-    private Nodo frente;
+    private Nodo<tipo> frente;
 
     /**
      * El ultimo nodo de la cola.
      */
-    private Nodo ultimo;
+    private Nodo<tipo> ultimo;
 
     /**
      * El tamaño de la cola.
      */
     private int size;
-
+    
+    /**
+     * Obtiene el tamaño actual de la cola.
+     * @return El tamaño actual de la cola.
+     */
     public int getSize() {
         return size;
     }
-
+    
+    /**
+     * Establece el tamaño de la cola
+     * @param size El nuevo tamaño de la cola.
+     */
     public void setSize(int size) {
         this.size = size;
     }
-
+    
+    /**
+     * crea un objeto de tipo Cola con los valores por defecto de cada atributo.
+     */
     public Cola() {
         this.frente = null;
         this.ultimo = null;
         this.size = 0;
     }
-
     
     /**
-     * Crea una nueva cola copiando los valores del objeto Cola proporcionado.
-     *
-     * @param c cola desde la cual se copiarán los valores.
+     * 
+     * @return 
      */
-    public Cola(Cola c) {
-        this.frente = c.frente;
-        this.ultimo = c.ultimo;
-        this.size = c.size;
-    }
-
     public boolean isVacia() {
         return this.frente == null;
     }
@@ -80,13 +85,13 @@ public class Cola<tipo> {
      *
      * @return El primer elemento de la cola, o nulo si la cola está vacía.
      * 
-     * se disminuye el atributo size en 1 para llevar un control del tamaño de la
-     * cola
+     * se disminuye el atributo size en 1 para llevar un control del 
+     * tamaño de la cola
      */
+    
     public tipo sacarDeCola() {
         if (this.frente != null) {
-            @SuppressWarnings("unchecked")
-            tipo aux = (tipo) this.frente.getDato();
+            tipo aux = this.frente.getDato();
             this.frente = this.frente.getEnlace();
             size--;
             return aux;
