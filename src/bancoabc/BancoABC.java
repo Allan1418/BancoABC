@@ -5,7 +5,7 @@ import java.util.Calendar;
 import javax.swing.JOptionPane;
 
 /**
- * @author 
+ * @author Allan Nunez Brenes, Anyelo Vargas Merlo, Celeste Cerdas Hernandez 
  * 
  * Clase principal que simula una sucursal bancaria del Banco ABC.
  */
@@ -44,28 +44,32 @@ public class BancoABC {
 
     //Metodo principal
     /**
-     * Método principal que inicia el sistema de gestión de cajas y ejecuta la
-     * simulación de la aplicación.
+     * Método principal que inicia el sistema de gestión de cajas.
      *
-     * El método comienza configurando las cajas mediante el método
-     * {@code defCajas()}. Luego, monta la simulación con el método
-     * {@code montarSimulacion()}. Después, inicia el menú principal del sistema
-     * mediante el método {@code menu()}.
+     * El método arranca el sistema configurando las cajas mediante el método
+     * {@code defCajas()}.
      *
-     * Este método también puede contener pruebas adicionales para verificar el
-     * funcionamiento del sistema.
+     * Este método contiene una simulacion para verificar el funcionamiento 
+     * del sistema. solo para el manejo de desarrolladores
      */
     public static void main(String[] args) {
 
         //arranque del sistema
-        //defCajas();
+        defCajas();
+        
+        
         //arranque con Simulacion montada
-        montarSimulacion();
-        menu();
+//        montarSimulacion();
+//        menu();
 
         //Pruebas
+        
+        
     }
-
+    
+    /**
+     * Metodo que monta una simulacion preconfigurada manualmente.
+     */
     public static void montarSimulacion() {
 
         cajeros = new ListaCajeros(5);
@@ -276,10 +280,11 @@ public class BancoABC {
     }
 
     //Metodos de Menu
+    
     /**
-     * indique la cantidad de cajas para abrir la sucursal bancaria (3-5)
-     *
-     * @param args
+     * El método solicita al usuario que ingrese la cantidad de cajas con las
+     * que se va a inicar la sucursal bancaria mediante una expresión regular, 
+     * que valida el numero ingresado entre 3 y 5.
      */
     public static void defCajas() {
         String precajas = Comun.regexConfirm("[3-5]", "indique la cantidad de cajas \nPara abrir la sucursal bancaria \n(3-5)", "Solo entre 3 a 5 cajas");
@@ -297,10 +302,10 @@ public class BancoABC {
      * gestionar cheques, listar cajas activas, gestionar cajas, generar
      * reportes, obtener ayuda y salir del programa.
      *
-     * Las opciones del menú están representadas por un arreglo de cadenas y se
-     * muestran mediante un cuadro de diálogo de opciones. Dependiendo de la
-     * opción seleccionada por el usuario, se ejecutan los métodos
-     * correspondientes.
+     * Las opciones del menú están representadas por un arreglo de strings y se
+     * muestran mediante un cuadro de diálogo de opciones JOptionPane. 
+     * Dependiendo de la opción seleccionada por el usuario, 
+     * se ejecutan los métodos correspondientes.
      */
     public static void menu() {
 
@@ -382,10 +387,6 @@ public class BancoABC {
      * usuarios en cajas mediante una ventana de diálogo JOptionPane. Las
      * opciones incluyen seleccionar ficha, llamar usuario a cajas, mostrar
      * fichas pendientes, cerrar ficha y consultar bitácora.
-     *
-     * Opciones del menú: 0 - Seleccionar Ficha 1 - Llamar Usuario a Cajas 2 -
-     * Mostrar Fichas Pendientes 3 - Cerrar Ficha 4 - Consultar Bitácora 5 -
-     * SALIR
      */
     public static void opUsuariosCajas() {
 
@@ -539,17 +540,18 @@ public class BancoABC {
     }
 
     /**
-     * Este método se encarga de preparar y llamar a un usuario para ser
+     * Este método se encarga de preparar y llamar a un usuario (Ficha) para ser
      * atendido en una caja. La preparación incluye la selección de la caja que
      * realizará la llamada y la determinación de si se atenderá a un usuario
      * preferencial o regular, según las reglas definidas.
      *
      * El método verifica la disponibilidad de fichas pendientes tanto para
-     * usuarios preferenciales como para regulares. Luego, muestra un cuadro de
-     * diálogo con las cajas disponibles y permite al usuario seleccionar la
-     * caja que realizará la llamada. Después de seleccionar la caja, determina
-     * si se atenderá a un usuario preferencial o regular según las reglas
-     * definidas. Finalmente, llama al método {@code atenderFicha} para realizar
+     * usuarios preferenciales como para regulares. 
+     * Luego, muestra un cuadro de diálogo con las cajas disponibles y permite 
+     * al usuario seleccionar la caja que realizará la llamada. 
+     * Después de seleccionar la caja, determina si se atenderá a un 
+     * usuario preferencial o regular según las reglas definidas. 
+     * Finalmente, llama al método {@code atenderFicha} para realizar
      * la atención correspondiente.
      *
      */
@@ -736,10 +738,11 @@ public class BancoABC {
      * Este método inicia la generación de un informe personalizado basado en la
      * información de las fichas atendidas por un cajero o todos los cajeros del
      * sistema. Permite al usuario seleccionar varios parámetros para
-     * personalizar el informe, incluyendo el cajero, el tipo de ficha
-     * (preferencial, regular o todas), el elemento de ordenamiento y el
-     * criterio de ordenamiento. Finalmente, muestra el informe generado por la
-     * consola.
+     * personalizar el informe: incluyendo el cajero (uno o todos), 
+     * el tipo de ficha (preferencial, regular o todas), 
+     * el elemento de ordenamiento (Fecha de llegada o atencion) 
+     * y el criterio de ordenamiento (Ascendentemente o Descendentemente). 
+     * Finalmente, muestra el informe generado por la consola.
      */
     public static void iniciarReporte() {
         int preCaj, preElemento, preOrdena;
@@ -796,4 +799,7 @@ public class BancoABC {
     }
 
     //OtrosMetodos
+    
+    
+    
 }

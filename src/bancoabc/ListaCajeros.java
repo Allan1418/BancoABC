@@ -4,10 +4,10 @@ import static bancoabc.estTer.*;
 import java.util.ArrayList;
 
 /**
+ * -m
  * 
- * @author 
+ * @author Allan Nunez Brenes
  */
-
 public class ListaCajeros {
 
     /**
@@ -144,14 +144,15 @@ public class ListaCajeros {
     }
 
     /**
-     * Obtiene un array de identificadores de cajeros en formato de cadena,
-     * filtrado por su estado de ocupación y opción específica.
+     * Obtiene un array de identificadores de cajeros en formato de string,
+     * filtrando por si estan atendiendo, si estan libres o sin filtro. 
+     * se pueden añadir opciónes adicionales al final del array.
      *
      * @param volver Indica si se debe incluir la opción "Volver" en el array.
      * @param todos Indica si se debe incluir la opción "Todos" en el array.
      * @param op La opción específica que se debe aplicar al filtrar la lista
      * (TRUE, FALSE, NO_APLICA).
-     * @return Un array de identificadores de cajeros en formato de cadena.
+     * @return Un array de identificadores de cajeros en formato de string.
      */
     public String[] getArrayStr(boolean volver, boolean todos, estTer op) {
 
@@ -180,23 +181,6 @@ public class ListaCajeros {
 
         return botones.toArray(retorno);
     }
-
-    /**
-     * Método deprecado: Imprime los identificadores de los cajeros en la lista.
-     * (Se recomienda usar otros métodos).
-     *
-     * @deprecated Este método está obsoleto y puede ser eliminado en futuras
-     * versiones. Utilice métodos más específicos.
-     */
-    @Deprecated
-    public void imprimir() {
-        Nodo aux = cabeza;
-
-        while (aux != null) {
-            System.out.println(((Cajero) aux.getDato()).getId());
-            aux = aux.getEnlace();
-        }
-
-    }
-
+    
+    
 }

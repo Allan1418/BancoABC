@@ -5,52 +5,105 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
 /**
+ * -m
  * 
- * @author 
+ * 
+ * @author Allan Nunez Brenes, Anyelo Vargas Merlo
  */
 
 public class Cheque {
 
     //Variable Global
+    /**
+     * 
+     */
     private static int contador = 1;
 
     // Atributos
     // Número de cheque, nombre, fecha de emisión, monto.
+    /**
+     * 
+     */
     private int numero;
+    
+    /**
+     * 
+     */
     private String nombre;
+    
+    /**
+     * 
+     */
     private String date;
+    
+    /**
+     * 
+     */
     private double monto;
 
     
     //Metodos Get y set
+    
+    /**
+     * 
+     * @return 
+     */
     public int getNumero() {
         return numero;
     }
-
+    
+    /**
+     * 
+     * @param numero
+     */
     public void setNumero(int numero) {
         this.numero = numero;
     }
-
+    
+    /**
+     * 
+     * @return 
+     */
     public String getNombre() {
         return nombre;
     }
-
+    
+    /**
+     * 
+     * @param nombre
+     */
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
-
+    
+    /**
+     * 
+     * @return 
+     */
     public String getDate() {
         return date;
     }
-
+    
+    /**
+     * 
+     * @param date 
+     */
     public void setDate(String date) {
         this.date = date;
     }
-
+    
+    /**
+     * 
+     * @return 
+     */
     public double getMonto() {
         return monto;
     }
-
+    
+    /**
+     * 
+     * @param monto 
+     */
     public void setMonto(double monto) {
         this.monto = monto;
     }

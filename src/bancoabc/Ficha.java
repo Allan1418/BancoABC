@@ -4,50 +4,113 @@ import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 
 /**
+ * -m
  * 
- * @author 
+ * 
+ * @author Allan Nunez Brenes, Anyelo Vargas Merlo
  */
 
 public class Ficha {
 
     //Variables Globlales
+    
+    /**
+     * 
+     */
     private static int contNormal = 1;
+    
+    /**
+     * 
+     */
     private static int contPreferencial = 1;
 
     //Atributos
     //Número de ficha, Número de Cédula del cliente, Nombre del cliente, Fecha y hora de llegada(Formato timestamp)
+    
+    /**
+     * 
+     */
     private String numero;
+    
+    /**
+     * 
+     */
     private String cedula;
+    
+    /**
+     * 
+     */
     private String nombre;
+    
+    /**
+     * 
+     */
     private Timestamp llegada;
+    
+    /**
+     * 
+     */
     private Timestamp atencion;
+    
+    /**
+     * 
+     */
     private boolean preferencial;
 
     //Metodos Get y set
+    
+    /**
+     * 
+     * @return 
+     */
     public String getNumero() {
         return numero;
     }
 
+    /**
+     * 
+     * @param numero 
+     */
     public void setNumero(String numero) {
         this.numero = numero;
     }
 
+    /**
+     * 
+     * @return 
+     */
     public String getCedula() {
         return cedula;
     }
 
+    /**
+     * 
+     * @param cedula 
+     */
     public void setCedula(String cedula) {
         this.cedula = cedula;
     }
 
+    /**
+     * 
+     * @return 
+     */
     public String getNombre() {
         return nombre;
     }
 
+    /**
+     * 
+     * @param nombre 
+     */
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
 
+    /**
+     * 
+     * @return 
+     */
     public Timestamp getLlegada() {
         return llegada;
     }
@@ -61,14 +124,26 @@ public class Ficha {
         return new SimpleDateFormat("dd-MM-yyyy HH:mm").format(this.llegada);
     }
 
+    /**
+     * 
+     * @param llegada 
+     */
     public void setLlegada(Timestamp llegada) {
         this.llegada = llegada;
     }
 
+    /**
+     * 
+     * @return 
+     */
     public Timestamp getAtencion() {
         return atencion;
     }
 
+    /**
+     * 
+     * @param atencion 
+     */
     public void setAtencion(Timestamp atencion) {
         this.atencion = atencion;
     }
@@ -82,15 +157,24 @@ public class Ficha {
         return new SimpleDateFormat("dd-MM-yyyy HH:mm").format(this.atencion);
     }
 
+    /**
+     * 
+     * @return 
+     */
     public boolean isPreferencial() {
         return preferencial;
     }
 
+    /**
+     * 
+     * @param preferencial 
+     */
     public void setPreferencial(boolean preferencial) {
         this.preferencial = preferencial;
     }
 
     //Constructores
+    
     /**
      * Crea un objeto Ficha con los valores por defecto de cada atributo.
      */
@@ -127,16 +211,15 @@ public class Ficha {
     //Otros Metodos
     
     /**
-     * Devuelve una representación en cadena de la ficha, resaltando en color la
+     * Devuelve una string de la ficha, resaltando en color la
      * información según su tipo (preferencial o regular).
      *
      * Este método genera una representación en cadena de la ficha, utilizando
-     * colores ANSI para resaltar ciertos elementos según si la ficha es
-     * preferencial o regular. La información incluye el número de la ficha, el
-     * nombre, la cédula, la hora de llegada y, si está disponible, la hora de
-     * atención.
+     * colores ANSI según si la ficha es preferencial (rojo) o regular (verde).
+     * La información incluye el número de la ficha, el nombre, la cédula, 
+     * la hora de llegada y (si está disponible) la hora de atención.
      *
-     * @return Una cadena que representa la ficha con información resaltada en
+     * @return Una string que representa la ficha con información resaltada en
      * color.
      */
     @Override

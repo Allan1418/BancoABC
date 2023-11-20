@@ -2,24 +2,47 @@
 package bancoabc;
 
 /**
+ * -m
  * 
- * @author 
+ * @author Anyelo Vargas Merlo
  */
 public class Cajero {
 
+    /**
+     * 
+     */
     private int id;
-
+    
+    /**
+     * 
+     */
     private Ficha atendiendo;
+    
+    /**
+     * 
+     */
     private BitacoraFichas listaBitacora;
 
+    /**
+     * 
+     * @return 
+     */
     public int getId() {
         return id;
     }
-
+    
+    /**
+     * 
+     * @param id 
+     */
     public void setId(int id) {
         this.id = id;
     }
-
+    
+    /**
+     * 
+     * @return 
+     */
     public Ficha getAtendiendo() {
         return atendiendo;
     }
@@ -52,7 +75,8 @@ public class Cajero {
     }
 
     /**
-     * Constructor que inicializa un cajero con un identificador único, sin ficha asignada y con una nueva bitácora.
+     * Constructor que inicializa un cajero con un identificador único, 
+     * sin ficha asignada y con una nueva bitácora vacia.
      * 
      * @param id El identificador único del cajero.
      */
@@ -65,7 +89,8 @@ public class Cajero {
     /**
      * Verifica si el cajero está libre para atender una nueva ficha.
      * 
-     * @return {@code true} si el cajero está libre, {@code false} en caso contrario.
+     * @return {@code true} si el cajero está libre, 
+     * {@code false} en caso contrario.
      */
     public boolean isLibre() {
         return atendiendo == null;

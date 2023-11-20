@@ -1,13 +1,17 @@
 package bancoabc;
 
 /**
+ * Clase que implementa una lista enlazada simple que 
+ * almacena objetos de tipo Ficha, 
+ * ordenada por fecha de atencion Ascendentemente
  * 
- * @author 
+ * @author Allan Nunez Brenes, Anyelo Vargas Merlo 
  */
 public class BitacoraFichas {
 
     /**
-     * Nodo cabeza de la estructura que contiene las fichas registradas en la bitácora.
+     * Nodo cabeza de la list simple enlazada 
+     * que contiene las fichas registradas en cada bitácora.
      */
     private Nodo<Ficha> cabeza;
  
@@ -30,7 +34,8 @@ public class BitacoraFichas {
     }
     
     /**
-     * Constructor que inicializa una bitácora sin fichas registradas (cabeza nula).
+     * Constructor que inicializa una bitácora 
+     * sin fichas registradas (cabeza nula).
      */
     public BitacoraFichas() {
         this.cabeza = null;
@@ -63,13 +68,16 @@ public class BitacoraFichas {
     }
 
     /**
-     * Método privado utilizado para insertar un nuevo nodo con una ficha en una
-     * posición ordenada dentro de una estructura de nodos.
+     * Método privado recursivo 
+     * utilizado para insertar un nuevo nodo con una ficha en una posición 
+     * ordenada dentro de una estructura de nodos.
      *
      * Este método realiza la inserción ordenada de un nuevo nodo en una
      * estructura de nodos, comparando las fechas de atención de las fichas. El
      * nuevo nodo se inserta en la posición correcta para mantener el orden
      * ascendente de las fechas de atención.
+     * 
+     * Este metodo es un axuliar de {@code insertar(Ficha nuevo)}
      *
      * @param nuevoNodo El nuevo nodo que se va a insertar en la estructura.
      * @param nodoActual El nodo actual desde el cual se inicia la búsqueda e
@@ -112,8 +120,7 @@ public class BitacoraFichas {
      *
      * Este método realiza una impresión en profundidad (recursiva) de la
      * información de las fichas almacenadas en la estructura de nodos. Se
-     * utiliza principalmente para imprimir el contenido de una lista enlazada u
-     * otra estructura similar.
+     * utiliza para imprimir el contenido de una lista enlazada.
      *
      * @param actual El nodo actual desde el cual se inicia la impresión. Puede
      * ser el nodo cabeza de una lista enlazada.

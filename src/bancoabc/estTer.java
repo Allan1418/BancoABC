@@ -3,9 +3,9 @@ package bancoabc;
 
  
 /**
- * @author 
+ * Enumeración que representa un estado ternario (TRUE), falso (FALSE) o no aplicable (NO_APLICA).
  * 
- * Enumeración que representa el estado de verdad (TRUE), falso (FALSE) o no aplicable (NO_APLICA).
+ * @author Anyelo Vargas Merlo
  */
 public enum estTer {
     

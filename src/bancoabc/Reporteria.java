@@ -4,8 +4,9 @@ package bancoabc;
 import static bancoabc.estTer.*;
 
 /**
+ * -m
  * 
- * @author 
+ * @author Allan Nunez Brenes
  */
 
 public class Reporteria {
@@ -15,11 +16,19 @@ public class Reporteria {
      */
     private Nodo<Ficha> cabeza;
     
+    /**
+     * 
+     */
     private boolean llegada;
+    
+    /**
+     * 
+     */
     private boolean ascendente;
     
    /**
-     * Tipo de ficha a considerar en el reporte (TRUE para preferencial, FALSE para regular, NO_APLICA para ambas).
+     * Tipo de ficha a considerar en el reporte 
+     * (TRUE para preferencial, FALSE para regular, NO_APLICA para ambas).
      */
     private estTer tipoFicha;
 
@@ -32,41 +41,72 @@ public class Reporteria {
         return cabeza;
     }
 
+    /**
+     * 
+     * @param cabeza 
+     */
     public void setCabeza(Nodo<Ficha> cabeza) {
         this.cabeza = cabeza;
     }
 
+    /**
+     * 
+     * @return 
+     */
     public boolean isLlegada() {
         return llegada;
     }
 
+    /**
+     * 
+     * @param llegada 
+     */
     public void setLlegada(boolean llegada) {
         this.llegada = llegada;
     }
 
+    /**
+     * 
+     * @return 
+     */
     public boolean isAscendente() {
         return ascendente;
     }
 
+    /**
+     * 
+     * @param ascendente 
+     */
     public void setAscendente(boolean ascendente) {
         this.ascendente = ascendente;
     }
     
+    /**
+     * 
+     * @return 
+     */
     public estTer getTipoFicha() {
         return tipoFicha;
     }
-
     
+    /**
+     * 
+     * @param tipoFicha 
+     */
     public void setTipoFicha(estTer tipoFicha) {
         this.tipoFicha = tipoFicha;
     }
     
     /**
-     * Constructor que inicializa un objeto `Reporteria` con opciones de filtrado y ordenamiento.
+     * Constructor que inicializa un objeto de tipo Reporteria 
+     * con opciones de filtrado y ordenamiento.
      * 
-     * @param llegada Indica si el reporte se ordena por tiempo de llegada.
-     * @param ascendente Indica si el ordenamiento es ascendente.
-     * @param tipoFicha El tipo de ficha a considerar en el reporte (TRUE para preferencial, FALSE para regular, NO_APLICA para ambas).
+     * @param llegada Indica si el reporte se ordena por hora de llegada (true)
+     * o por hora de atencion (false).
+     * @param ascendente Indica si el ordenamiento es ascendente (true)
+     * o descendente (false).
+     * @param tipoFicha El tipo de ficha a considerar en el reporte 
+     * (TRUE para preferencial, FALSE para regular, NO_APLICA para ambas).
      */
     public Reporteria(boolean llegada, boolean ascendente, estTer tipoFicha) {
         this.cabeza = null;
@@ -77,9 +117,15 @@ public class Reporteria {
     
     
     /**
-     * Inserta una lista de fichas en la lista de fichas para el reporte, respetando las opciones de filtrado y ordenamiento.
+     * Metodo que inserta una nueva Ficha en la lista simple enlazada simple,
+     * aplicando los filtros previamente definidos al momento de construir el
+     * objeto.
      * 
-     * @param nuevo La lista de fichas a insertar en el reporte.
+     * si la lista esta vacia o el nuevo objeto debe ir al prinicipio de esta
+     * ejecuta los algoritmos necesarios, 
+     * caso contrario ejecuta {@code void insertar(Nodo<Ficha> nuevoNodo, Nodo<Ficha> nodoActual)}
+     * 
+     * @param nuevo La nueva ficha a insertar en el reporte.
      */
     public void insertar(Ficha nuevo){
         
@@ -145,7 +191,11 @@ public class Reporteria {
     
     
     /**
-     * Método privado que realiza la inserción de un nuevo nodo en una posición específica de la lista de forma recursiva.
+     * Método privado recursivo que realiza la inserción en la lista de un nuevo nodo, 
+     * que debe ir en una posicion especifica o al final de la lista.
+     * 
+     * El metodo apilica los algoritmos de evaluacion necesarios segun
+     * los filtros definidos al momento de crear el objeto.
      *
      * @param nuevoNodo   El nuevo nodo a insertar.
      * @param nodoActual  El nodo actual que se está evaluando.
@@ -197,9 +247,12 @@ public class Reporteria {
     }
     
     /**
-     * Inserta una lista de fichas en la lista actual.
+     * Inserta una lista completa de fichas en la lista actual.
+     * 
+     * el metodo llama a {@code insertar(Ficha nuevo)} por cada Ficha que
+     * encuentre en la lista.
      *
-     * @param nuevo Lista de fichas a insertar.
+     * @param nuevo cabeza de la lista de fichas a insertar.
      */
     public void insertarLista(Nodo<Ficha> nuevo){
         
@@ -208,11 +261,11 @@ public class Reporteria {
             nuevo = nuevo.getEnlace();
         }
         
-        
     }
     
     /**
      * Imprime el contenido de la lista de fichas.
+     * o indica un mensaje si la cabeza esta vacia.
      */
     public void imprimir(){
         

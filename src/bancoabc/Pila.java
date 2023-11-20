@@ -2,21 +2,30 @@
 package bancoabc;
 
 /**
- * @author 
- * 
  * Una clase para representar una pila.
  *
  * @param <tipo> El tipo de elemento que almacena la pila.
+ * 
+ * @author Anyelo Vargas Merlo
  */
 public class Pila<tipo> {
     
+    /**
+     * 
+     */
     private Nodo<tipo> cima;
 
+    /**
+     * 
+     */
     public Pila() {
         this.cima = null;
     }
     
-
+    /**
+     * 
+     * @return 
+     */
     public boolean isVacia() {
         return this.cima == null;
     }
@@ -46,7 +55,6 @@ public class Pila<tipo> {
      *
      * @return El elemento superior de la pila, o nulo si la pila está vacía.
      */
-
     public tipo pop(){
         
         if (cima != null) {

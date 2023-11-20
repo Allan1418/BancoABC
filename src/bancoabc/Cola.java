@@ -3,7 +3,7 @@ package bancoabc;
 /**
  * Una clase para representar una cola.
  *
- * @author 
+ * @author Allan Nunez Brenes
  * 
  * @param <tipo> El tipo de elemento que almacena la cola.
  */
@@ -23,22 +23,36 @@ public class Cola<tipo> {
      * El tamaño de la cola.
      */
     private int size;
-
+    
+    /**
+     * 
+     * @return 
+     */
     public int getSize() {
         return size;
     }
-
+    
+    /**
+     * 
+     * @param size 
+     */
     public void setSize(int size) {
         this.size = size;
     }
-
+    
+    /**
+     * crea un objeto de tipo Cola con los valores por defecto de cada atributo.
+     */
     public Cola() {
         this.frente = null;
         this.ultimo = null;
         this.size = 0;
     }
-
-
+    
+    /**
+     * 
+     * @return 
+     */
     public boolean isVacia() {
         return this.frente == null;
     }
@@ -71,8 +85,8 @@ public class Cola<tipo> {
      *
      * @return El primer elemento de la cola, o nulo si la cola está vacía.
      * 
-     * se disminuye el atributo size en 1 para llevar un control del tamaño de la
-     * cola
+     * se disminuye el atributo size en 1 para llevar un control del 
+     * tamaño de la cola
      */
     
     public tipo sacarDeCola() {

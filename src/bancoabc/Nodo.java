@@ -2,29 +2,52 @@
 package bancoabc;
 
 /**
- * @author 
- * 
  * Clase Nodo para crear estructuras de datos con dos atributos: enlace y dato.
  *
  * @param <tipo> El tipo de elementos que se guardara en el Nodo.
+ * 
+ * @author Allan Nunez Brenes
  */
 public class Nodo<tipo> {
-
+    
+    /**
+     * 
+     */
     private tipo dato;
+    
+    /**
+     * 
+     */
     private Nodo<tipo> enlace;
-
+    
+    /**
+     * 
+     * @return 
+     */
     public tipo getDato() {
         return dato;
     }
-
+    
+    /**
+     * 
+     * @param dato 
+     */
     public void setDato(tipo dato) {
         this.dato = dato;
     }
 
+    /**
+     * 
+     * @return 
+     */
     public Nodo<tipo> getEnlace() {
         return enlace;
     }
 
+    /**
+     * 
+     * @param enlace 
+     */
     public void setEnlace(Nodo<tipo> enlace) {
         this.enlace = enlace;
     }

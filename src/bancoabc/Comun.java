@@ -4,10 +4,11 @@ package bancoabc;
 import javax.swing.JOptionPane;
 
 /**
+ * Clase miscelania con metodos estaticos y genericos 
+ * diseñados para reutilizarse en distintas partes del proyecto.
  * 
- * @author 
+ * @author Allan Nunez Brenes
  */
-
 public class Comun {
 
     /**
@@ -47,11 +48,11 @@ public class Comun {
      * de los botones y se devuelve el índice correspondiente. Si se selecciona
      * el botón "Volver" (si está presente en el array), se devuelve -1.
      *
-     * @param opciones Un array de cadenas que representa las opciones de los
+     * @param opciones Un array de strings que representa las opciones de los
      * botones en la ventana de diálogo.
      * @param ask La pregunta o mensaje que se muestra en la ventana de diálogo.
      * @return El índice del botón seleccionado o -1 si se selecciona el botón
-     * "Volver".
+     * "Volver" o cierra la ventana de dialogo.
      * @throws IllegalArgumentException Si el array de opciones es nulo o vacío.
      */
     public static int mostrarBotones(String[] opciones, String ask) {
