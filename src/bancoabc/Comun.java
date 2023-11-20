@@ -78,5 +78,11 @@ public class Comun {
 
         return opt;
     }
+    
+    /**
+     * Requisito de javaDoc, ignorar.
+     */
+    public Comun() {
+    }
 
 }

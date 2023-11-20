@@ -9,8 +9,19 @@ package bancoabc;
  */
 public enum estTer {
     
+    /**
+     * Representa booleano true.
+     */
     TRUE,
+    
+    /**
+     * Representa booleano false.
+     */
     FALSE,
+    
+    /**
+     * Tercer estado en el que no aplica ni true ni false.
+     */
     NO_APLICA
     
 }
