@@ -1,4 +1,3 @@
-
 package bancoabc;
 
 import java.sql.Timestamp;
@@ -6,62 +5,67 @@ import java.util.Calendar;
 import javax.swing.JOptionPane;
 
 /**
+ * @author 
+ * 
  * Clase principal que simula una sucursal bancaria del Banco ABC.
  */
+
 public class BancoABC {
-    
+
 
     //Variables Globales
     
     /**
-     * -m
-     * variable global que almacena la cantidad de cajas de la sucursal
-     * se inicializa en 0
+     * Variable estática que representa la lista de cajeros en el sistema.
+     *
+     * Esta variable se utiliza para almacenar y gestionar la información de los
+     * cajeros disponibles en el sistema. La lista de cajeros se inicializa y
+     * manipula a lo largo del ciclo de vida de la aplicación.
      */
     public static ListaCajeros cajeros;
-    
+
     /**
-     * variable global que almacena los cheques del sistema
-     * se establece el tipo de la pila en objetos de tipo Cheque
+     * variable global que almacena los cheques del sistema se establece el tipo
+     * de la pila en objetos de tipo Cheque
      */
     public static Pila<Cheque> cheques = new Pila<>();
-    
+
     /**
-     * variable global que almacena las fichas regulares del sistema
-     * se establece el tipo de la cola en objetos de tipo Ficha
+     * variable global que almacena las fichas regulares del sistema se
+     * establece el tipo de la cola en objetos de tipo Ficha
      */
     public static Cola<Ficha> fichasRegulares = new Cola<>();
-    
+
     /**
-     * variable global que almacena las fichas preferenciales del sistema
-     * se establece el tipo de la cola en objetos de tipo Ficha
+     * variable global que almacena las fichas preferenciales del sistema se
+     * establece el tipo de la cola en objetos de tipo Ficha
      */
     public static Cola<Ficha> fichasPreferenciales = new Cola<>();
 
     //Metodo principal
-    
     /**
-     * -m
-     * arranque del sistema
-     * se llama a la funcion menu para iniciar la ejecucion del sistema
-     * 
-     * @param args 
+     * Método principal que inicia el sistema de gestión de cajas y ejecuta la
+     * simulación de la aplicación.
+     *
+     * El método comienza configurando las cajas mediante el método
+     * {@code defCajas()}. Luego, monta la simulación con el método
+     * {@code montarSimulacion()}. Después, inicia el menú principal del sistema
+     * mediante el método {@code menu()}.
+     *
+     * Este método también puede contener pruebas adicionales para verificar el
+     * funcionamiento del sistema.
      */
     public static void main(String[] args) {
-        
-        
+
         //arranque del sistema
         //defCajas();
-        
         //arranque con Simulacion montada
         montarSimulacion();
         menu();
-        
+
         //Pruebas
-        
-        
     }
-    
+
     public static void montarSimulacion() {
 
         cajeros = new ListaCajeros(5);
@@ -159,7 +163,7 @@ public class BancoABC {
         o1.setAtencion(new Timestamp(calendar.getTimeInMillis()));
 
         Ficha p1 = new Ficha("p1", "16", false);
-        calendar.set(2023, Calendar.NOVEMBER, 31, 0, 0, 0);
+        calendar.set(2023, Calendar.OCTOBER, 31, 0, 0, 0);
         p1.setLlegada(new Timestamp(calendar.getTimeInMillis()));
         calendar.set(2023, Calendar.NOVEMBER, 1, 0, 0, 0);
         p1.setAtencion(new Timestamp(calendar.getTimeInMillis()));
@@ -271,34 +275,35 @@ public class BancoABC {
 
     }
 
-    
     //Metodos de Menu
     /**
-     * -m
+     * indique la cantidad de cajas para abrir la sucursal bancaria (3-5)
+     *
+     * @param args
      */
-    public static void defCajas(){
+    public static void defCajas() {
         String precajas = Comun.regexConfirm("[3-5]", "indique la cantidad de cajas \nPara abrir la sucursal bancaria \n(3-5)", "Solo entre 3 a 5 cajas");
         if (precajas == null) {
             return;
         }
 
         cajeros = new ListaCajeros(Integer.parseInt(precajas));
-        
+
         menu();
     }
-    
+
     /**
-     * -m
-     * implementa el menu principal y le pregunta la cantidad de cajas al usuario.
-     * 
-     * se pregunta al usuario la cantidad de cajas validando que esten entre 3 y 5
-     * y se guarda la eleccion del usuario en la variable global cantcajas
-     * 
-     * Muestra el menú principal de la aplicación y permite al usuario
-     * seleccionar diferentes opciones.
+     * Este método muestra un menú principal. El menú incluye opciones para
+     * gestionar cheques, listar cajas activas, gestionar cajas, generar
+     * reportes, obtener ayuda y salir del programa.
+     *
+     * Las opciones del menú están representadas por un arreglo de cadenas y se
+     * muestran mediante un cuadro de diálogo de opciones. Dependiendo de la
+     * opción seleccionada por el usuario, se ejecutan los métodos
+     * correspondientes.
      */
     public static void menu() {
-        
+
         String[] botones = {"Gestionar Cheques", "Listar Cajas Activas", "Gestionar Cajas", "Reporteria", "Ayuda", "SALIR"};
         int opcion;
         OUTER:
@@ -333,7 +338,7 @@ public class BancoABC {
 
         }
     }
-    
+
     /**
      * Muestra un menú de opciones para la gestión de cheques por parte de la
      * gerencia del banco. Las opciones incluyen ingresar un nuevo cheque,
@@ -373,10 +378,14 @@ public class BancoABC {
     }
 
     /**
-     * -m
-     * Muestra el menú de gestión de usuarios de las cajas del banco. Las
-     * opciones incluyen seleccionar una ficha, llamar a un usuario a las cajas
-     * y mostrar las fichas pendientes.
+     * Este método muestra un menú de opciones relacionadas con la gestión de
+     * usuarios en cajas mediante una ventana de diálogo JOptionPane. Las
+     * opciones incluyen seleccionar ficha, llamar usuario a cajas, mostrar
+     * fichas pendientes, cerrar ficha y consultar bitácora.
+     *
+     * Opciones del menú: 0 - Seleccionar Ficha 1 - Llamar Usuario a Cajas 2 -
+     * Mostrar Fichas Pendientes 3 - Cerrar Ficha 4 - Consultar Bitácora 5 -
+     * SALIR
      */
     public static void opUsuariosCajas() {
 
@@ -424,14 +433,11 @@ public class BancoABC {
         String m = "Banco ABC \n\nIntegrantes de la solucion: \n-Allan Nuñez Brenes  \n-Anyelo Vargas Merlo  \n-Maria Celeste Cerdas Hernandez";
         JOptionPane.showMessageDialog(null, m);
     }
-    
-    
 
     //Metodos de opcion
-    
     /**
-     * Crea un nuevo cheque y lo agrega a la pila de cheques.
-     * pregunta al usuario el titular del cheque y el monto.
+     * Crea un nuevo cheque y lo agrega a la pila de cheques. pregunta al
+     * usuario el titular del cheque y el monto.
      */
     public static void crearCheque() {
         String preNombre, preMonto;
@@ -473,9 +479,9 @@ public class BancoABC {
     }
 
     /**
-     * Imprime en consola la lista de cheques pendientes en la pila de cheques. Muestra una
-     * cabecera con el título "Cheques Pendientes," seguido de la lista de
-     * cheques y una línea divisoria.
+     * Imprime en consola la lista de cheques pendientes en la pila de cheques.
+     * Muestra una cabecera con el título "Cheques Pendientes," seguido de la
+     * lista de cheques y una línea divisoria.
      */
     public static void imprCheques() {
         System.out.println("\n---Cheques Pendientes---");
@@ -485,8 +491,8 @@ public class BancoABC {
 
     /**
      * Crea una nueva ficha de cliente y la agrega a la cola correspondiente
-     * (preferencial o regular).
-     * Se le pregunta al usuario el tipo de ficha, nombre y cedula.
+     * (preferencial o regular). Se le pregunta al usuario el tipo de ficha,
+     * nombre y cedula.
      */
     public static void crearFicha() {
 
@@ -518,7 +524,7 @@ public class BancoABC {
             return;
         }
 
-        preCedula = Comun.regexConfirm("\\d{9}", "Ingrese su Cedula", "Formato de cedula invalido!");
+        preCedula = Comun.regexConfirm("\\d{9}", "Ingrese su Cedula", "Formato de cedula invalido! \n(9 digitos)");
         if (preCedula == null) {
             return;
         }
@@ -533,12 +539,19 @@ public class BancoABC {
     }
 
     /**
-     * -m
-     * Prepara y llama a un usuario de las cajas, dependiendo de la
-     * disponibilidad y el tipo de ficha.
-     * se pregunta al usuario el numero de caja que atiende validando que exista la caja.
-     * dependiendo del tipo de caja y la cantidad de fichas pendientes se atiende
-     * una ficha regular o preferncial
+     * Este método se encarga de preparar y llamar a un usuario para ser
+     * atendido en una caja. La preparación incluye la selección de la caja que
+     * realizará la llamada y la determinación de si se atenderá a un usuario
+     * preferencial o regular, según las reglas definidas.
+     *
+     * El método verifica la disponibilidad de fichas pendientes tanto para
+     * usuarios preferenciales como para regulares. Luego, muestra un cuadro de
+     * diálogo con las cajas disponibles y permite al usuario seleccionar la
+     * caja que realizará la llamada. Después de seleccionar la caja, determina
+     * si se atenderá a un usuario preferencial o regular según las reglas
+     * definidas. Finalmente, llama al método {@code atenderFicha} para realizar
+     * la atención correspondiente.
+     *
      */
     public static void prepararFicha() {
 
@@ -552,7 +565,6 @@ public class BancoABC {
         if (preCaja == -1) {
             return;
         }
-        
 
         int cajaActual = Integer.parseInt(botones[preCaja]);
 
@@ -587,12 +599,18 @@ public class BancoABC {
     }
 
     /**
-     * -m
-     * Atiende a un cliente saquandolo de la cola respectiva 
-     * de acuerdo con la caja asignada y el tipo de ficha.
+     * Este método se encarga de atender a un usuario con la ficha
+     * correspondiente en una caja específica. La ficha se obtiene de la cola de
+     * fichas preferenciales si el parámetro {@code preferencial} es verdadero,
+     * de lo contrario, se obtiene de la cola de fichas regulares.
      *
-     * @param numCaja Número de caja asignada al cliente
-     * @param preferencial Indicador de si la ficha es preferencial (true) o no (false)
+     * El método muestra un mensaje con la información de la ficha atendida,
+     * incluyendo el número de ficha, la cédula de identidad y la caja asignada.
+     * Luego, asigna la ficha a la caja correspondiente para su atención.
+     *
+     * @param numCaja El número de la caja que atenderá al usuario.
+     * @param preferencial Un valor booleano que indica si la ficha a atender es
+     * preferencial o no.
      */
     public static void atenderFicha(int numCaja, boolean preferencial) {
 
@@ -609,14 +627,20 @@ public class BancoABC {
         m = "Ficha #" + actual.getNumero() + " con cédula " + actual.getCedula() + " pasar a caja " + numCaja;
 
         JOptionPane.showMessageDialog(null, m);
-        
+
         cajeros.buscar(numCaja).setAtendiendo(actual);
     }
 
     /**
-     * -m
-     * Imprime en consola las fichas pendientes en las colas, tanto regulares como
-     * preferenciales.
+     * Este método imprime por la consola la información de las fichas
+     * pendientes y las fichas en atención.
+     *
+     * Imprime las fichas pendientes tanto para usuarios regulares como
+     * preferenciales, mostrando el número de cada ficha y su cédula. Además,
+     * imprime las fichas en atención en cada caja, indicando el número de la
+     * caja y la ficha que está siendo atendida. La salida se organiza de manera
+     * clara y legible para proporcionar una visión general del estado actual de
+     * las fichas en el sistema.
      */
     public static void imprFichas() {
         System.out.println("\n---Fichas Pendientes---");
@@ -630,86 +654,107 @@ public class BancoABC {
     }
 
     /**
-     * -m
+     * Este método permite cerrar la ficha que está siendo atendida por un
+     * cajero específico.
+     *
+     * Muestra un cuadro de diálogo con la lista de cajeros que están
+     * actualmente atendiendo a un usuario. Si no hay cajeros atendiendo, se
+     * muestra un mensaje informativo y el método termina. Luego, el usuario
+     * selecciona el cajero que cerrará la ficha mediante un cuadro de diálogo.
+     * Se registra la hora de cierre de la atención en la ficha, se inserta la
+     * ficha en la bitácora del cajero y se establece que el cajero ya no está
+     * atendiendo a ninguna ficha.
+     *
      */
-    public static void cerrarFicha(){
-        
+    public static void cerrarFicha() {
+
         int preCaj;
         Cajero cajAct;
-        
+
         String[] botones = cajeros.getArrayStr(true, false, estTer.FALSE);
-        
+
         if (botones.length == 1) {
             JOptionPane.showMessageDialog(null, "Ningun Cajero esta atendiendo!");
             return;
         }
-        
+
         preCaj = Comun.mostrarBotones(botones, "Seleccione el cajero que cierra Ficha");
         if (preCaj == -1) {
             return;
         }
-        
-        
+
         cajAct = cajeros.buscar(Integer.parseInt(botones[preCaj]));
-        
+
         cajAct.getAtendiendo().setAtencion(new Timestamp(System.currentTimeMillis()));
         cajAct.getListaBitacora().insertar(cajAct.getAtendiendo());
         cajAct.setAtendiendo(null);
-        
+
     }
-    
+
     /**
-     * -m
+     * Este método imprime por la consola la bitácora de un cajero específico o
+     * de todos los cajeros del sistema. Permite al usuario seleccionar el
+     * cajero para el cual consultar la bitácora mediante un cuadro de diálogo.
+     * Luego, muestra la bitácora correspondiente, organizada por cajero,
+     * incluyendo la información de las fichas atendidas.
+     *
+     * Si se elige consultar la bitácora de todos los cajeros, se imprimirá la
+     * bitácora de cada uno de ellos.
      */
     public static void imprBitacoras() {
         int preCaj;
         Cajero cajAct;
-        
+
         String[] botones = cajeros.getArrayStr(true, true, estTer.NO_APLICA);
-        
+
         preCaj = Comun.mostrarBotones(botones, "Seleccione el cajero a consultar Bitacora");
         if (preCaj == -1) {
             return;
         }
-        
-        if (preCaj == botones.length-2) {
+
+        if (preCaj == botones.length - 2) {
             System.out.println("\n---Bitacora de todos los cajeros---");
             for (int i = 0; i < cajeros.getSize(); i++) {
-                
-                cajAct = cajeros.buscar(i+1);
+
+                cajAct = cajeros.buscar(i + 1);
                 System.out.println("\nCajero #" + cajAct.getId());
                 cajAct.getListaBitacora().imprimir();
                 System.out.println("-----------------");
-                
+
             }
             return;
         }
-        
+
         cajAct = cajeros.buscar(Integer.parseInt(botones[preCaj]));
         System.out.println("\n---Bitacora del Cajero #" + cajAct.getId() + "---");
         cajAct.getListaBitacora().imprimir();
         System.out.println("----------------------------");
-        
+
     }
-    
+
     /**
-     * -m
+     * Este método inicia la generación de un informe personalizado basado en la
+     * información de las fichas atendidas por un cajero o todos los cajeros del
+     * sistema. Permite al usuario seleccionar varios parámetros para
+     * personalizar el informe, incluyendo el cajero, el tipo de ficha
+     * (preferencial, regular o todas), el elemento de ordenamiento y el
+     * criterio de ordenamiento. Finalmente, muestra el informe generado por la
+     * consola.
      */
-    public static void iniciarReporte(){
-        int preCaj , preElemento, preOrdena;
+    public static void iniciarReporte() {
+        int preCaj, preElemento, preOrdena;
         estTer preTiFicha;
-        
+
         String[] botCaj = cajeros.getArrayStr(true, true, estTer.NO_APLICA);
         String[] botFichas = {"Preferencial", "Regular", "Todos", "Volver"};
         String[] botElemento = {"Fecha Y hora de llegada", "Fecha Y hora de Atencion", "Volver"};
         String[] botOrdena = {"Ascendentemente", "Descendentemente", "Volver"};
-        
+
         preCaj = Comun.mostrarBotones(botCaj, "Seleccione el cajero del Reporte");
         if (preCaj == -1) {
             return;
         }
-        
-        
+
         switch (Comun.mostrarBotones(botFichas, "Seleccione el tipo de Ficha del Reporte")) {
             case 0:
                 preTiFicha = estTer.TRUE;
@@ -723,39 +768,32 @@ public class BancoABC {
             default:
                 return;
         }
-        
-        
+
         preElemento = Comun.mostrarBotones(botElemento, "Seleccione el elemento de ordenamiento");
         if (preElemento == -1) {
             return;
         }
-        
+
         preOrdena = Comun.mostrarBotones(botOrdena, "Seleccione el criterio de ordenamiento");
         if (preOrdena == -1) {
             return;
         }
-        
+
         Reporteria repoActual = new Reporteria((preElemento == 0), (preOrdena == 0), preTiFicha);
-        
-        
-        if (preCaj == botCaj.length-2) {
+
+        if (preCaj == botCaj.length - 2) {
             for (int i = 0; i < cajeros.getSize(); i++) {
-                repoActual.insertarLista(cajeros.buscar(i+1).getListaBitacora().getCabeza());
+                repoActual.insertarLista(cajeros.buscar(i + 1).getListaBitacora().getCabeza());
             }
-        }else{
+        } else {
             repoActual.insertarLista(cajeros.buscar(Integer.parseInt(botCaj[preCaj])).getListaBitacora().getCabeza());
         }
-        
+
         System.out.println("\n---Inicio Reporte Personalizado---");
         repoActual.imprimir();
         System.out.println("----Fin Reporte Personalizado-----");
-        
-        
-        
+
     }
-    
+
     //OtrosMetodos
-    
-    
-    
 }

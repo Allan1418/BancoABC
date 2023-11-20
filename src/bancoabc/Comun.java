@@ -3,6 +3,10 @@ package bancoabc;
 
 import javax.swing.JOptionPane;
 
+/**
+ * 
+ * @author 
+ */
 
 public class Comun {
 
@@ -33,22 +37,30 @@ public class Comun {
             }
         }
     }
-    
-    
+
     /**
-     * -m
-     * @param opciones
-     * @param ask
-     * @return 
+     * Muestra una ventana de diálogo con botones y devuelve el índice del botón
+     * seleccionado.
+     *
+     * Este método está diseñado para mostrar una ventana de diálogo con botones
+     * proporcionados en el array "opciones". El usuario puede seleccionar uno
+     * de los botones y se devuelve el índice correspondiente. Si se selecciona
+     * el botón "Volver" (si está presente en el array), se devuelve -1.
+     *
+     * @param opciones Un array de cadenas que representa las opciones de los
+     * botones en la ventana de diálogo.
+     * @param ask La pregunta o mensaje que se muestra en la ventana de diálogo.
+     * @return El índice del botón seleccionado o -1 si se selecciona el botón
+     * "Volver".
+     * @throws IllegalArgumentException Si el array de opciones es nulo o vacío.
      */
     public static int mostrarBotones(String[] opciones, String ask) {
-        
+
         //revisar
         if (opciones == null || opciones.length == 0) {
             throw new IllegalArgumentException("El array de opciones no puede ser nulo o vacío.");
         }
-        
-        
+
         int opt = JOptionPane.showOptionDialog(
                 null,
                 ask,
@@ -57,12 +69,12 @@ public class Comun {
                 JOptionPane.QUESTION_MESSAGE,
                 null,
                 opciones,
-                opciones[opciones.length-1]);
-        
-        if (opt == opciones.length-1 && opciones[opciones.length-1] == "Volver") {
+                opciones[opciones.length - 1]);
+
+        if (opt == opciones.length - 1 && opciones[opciones.length - 1] == "Volver") {
             return -1;
         }
-        
+
         return opt;
     }
 

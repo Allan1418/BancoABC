@@ -3,6 +3,8 @@ package bancoabc;
 /**
  * Una clase para representar una cola.
  *
+ * @author 
+ * 
  * @param <tipo> El tipo de elemento que almacena la cola.
  */
 public class Cola<tipo> {
@@ -36,7 +38,6 @@ public class Cola<tipo> {
         this.size = 0;
     }
 
-    
 
     public boolean isVacia() {
         return this.frente == null;

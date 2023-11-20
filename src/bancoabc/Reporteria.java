@@ -3,15 +3,31 @@ package bancoabc;
 
 import static bancoabc.estTer.*;
 
+/**
+ * 
+ * @author 
+ */
+
 public class Reporteria {
     
-    
+    /**
+     * Nodo cabeza de la lista que contiene las fichas para el reporte.
+     */
     private Nodo<Ficha> cabeza;
     
     private boolean llegada;
     private boolean ascendente;
+    
+   /**
+     * Tipo de ficha a considerar en el reporte (TRUE para preferencial, FALSE para regular, NO_APLICA para ambas).
+     */
     private estTer tipoFicha;
 
+    /**
+     * Obtiene el nodo cabeza de la lista de fichas para el reporte.
+     * 
+     * @return El nodo cabeza de la lista.
+     */
     public Nodo<Ficha> getCabeza() {
         return cabeza;
     }
@@ -40,11 +56,18 @@ public class Reporteria {
         return tipoFicha;
     }
 
+    
     public void setTipoFicha(estTer tipoFicha) {
         this.tipoFicha = tipoFicha;
     }
     
-
+    /**
+     * Constructor que inicializa un objeto `Reporteria` con opciones de filtrado y ordenamiento.
+     * 
+     * @param llegada Indica si el reporte se ordena por tiempo de llegada.
+     * @param ascendente Indica si el ordenamiento es ascendente.
+     * @param tipoFicha El tipo de ficha a considerar en el reporte (TRUE para preferencial, FALSE para regular, NO_APLICA para ambas).
+     */
     public Reporteria(boolean llegada, boolean ascendente, estTer tipoFicha) {
         this.cabeza = null;
         this.llegada = llegada;
@@ -53,6 +76,11 @@ public class Reporteria {
     }
     
     
+    /**
+     * Inserta una lista de fichas en la lista de fichas para el reporte, respetando las opciones de filtrado y ordenamiento.
+     * 
+     * @param nuevo La lista de fichas a insertar en el reporte.
+     */
     public void insertar(Ficha nuevo){
         
         if (tipoFicha != NO_APLICA) {
@@ -115,6 +143,13 @@ public class Reporteria {
         
     }
     
+    
+    /**
+     * Método privado que realiza la inserción de un nuevo nodo en una posición específica de la lista de forma recursiva.
+     *
+     * @param nuevoNodo   El nuevo nodo a insertar.
+     * @param nodoActual  El nodo actual que se está evaluando.
+     */
     private void insertar(Nodo<Ficha> nuevoNodo, Nodo<Ficha> nodoActual) {
         
         boolean agregar = false;
@@ -161,6 +196,11 @@ public class Reporteria {
         
     }
     
+    /**
+     * Inserta una lista de fichas en la lista actual.
+     *
+     * @param nuevo Lista de fichas a insertar.
+     */
     public void insertarLista(Nodo<Ficha> nuevo){
         
         while (nuevo != null) {
@@ -171,6 +211,9 @@ public class Reporteria {
         
     }
     
+    /**
+     * Imprime el contenido de la lista de fichas.
+     */
     public void imprimir(){
         
         Nodo<Ficha> aux = cabeza;

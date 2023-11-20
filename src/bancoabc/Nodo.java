@@ -2,6 +2,8 @@
 package bancoabc;
 
 /**
+ * @author 
+ * 
  * Clase Nodo para crear estructuras de datos con dos atributos: enlace y dato.
  *
  * @param <tipo> El tipo de elementos que se guardara en el Nodo.

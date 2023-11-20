@@ -2,6 +2,8 @@
 package bancoabc;
 
 /**
+ * @author 
+ * 
  * Una clase para representar una pila.
  *
  * @param <tipo> El tipo de elemento que almacena la pila.

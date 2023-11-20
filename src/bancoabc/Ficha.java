@@ -3,6 +3,11 @@ package bancoabc;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 
+/**
+ * 
+ * @author 
+ */
+
 public class Ficha {
 
     //Variables Globlales
@@ -47,6 +52,11 @@ public class Ficha {
         return llegada;
     }
 
+    /**
+     * Devuelve la fecha de llegada del vuelo en formato "dd-MM-yyyy HH:mm".
+     * 
+     * @return La fehca de llegada formateada como cadena de caracteres.
+     */
     public String getLlegadaStr() {
         return new SimpleDateFormat("dd-MM-yyyy HH:mm").format(this.llegada);
     }
@@ -62,7 +72,12 @@ public class Ficha {
     public void setAtencion(Timestamp atencion) {
         this.atencion = atencion;
     }
-    
+
+    /**
+     * Devuelve la fecha de Atencion del vuelo en formato "dd-MM-yyyy HH:mm".
+     * 
+     * @return La fehca de Atencion formateada como cadena de caracteres.
+     */
     public String getAtencionStr() {
         return new SimpleDateFormat("dd-MM-yyyy HH:mm").format(this.atencion);
     }
@@ -76,7 +91,6 @@ public class Ficha {
     }
 
     //Constructores
-    
     /**
      * Crea un objeto Ficha con los valores por defecto de cada atributo.
      */
@@ -88,8 +102,9 @@ public class Ficha {
      *
      * @param nombre El nombre del cliente.
      * @param cedula El número de identificación del cliente.
-     * @param preferencial Si el cliente es un cliente preferencial (true) o normal (false).
-     * 
+     * @param preferencial Si el cliente es un cliente preferencial (true) o
+     * normal (false).
+     *
      * atributo llegada se obtiene del la fecha actual del sistema
      */
     public Ficha(String nombre, String cedula, boolean preferencial) {
@@ -112,9 +127,17 @@ public class Ficha {
     //Otros Metodos
     
     /**
-     * -m
-     * @return string en formato con todos los atributos de la clase si es preferencial
-     * la string es naranja si no la string es verde
+     * Devuelve una representación en cadena de la ficha, resaltando en color la
+     * información según su tipo (preferencial o regular).
+     *
+     * Este método genera una representación en cadena de la ficha, utilizando
+     * colores ANSI para resaltar ciertos elementos según si la ficha es
+     * preferencial o regular. La información incluye el número de la ficha, el
+     * nombre, la cédula, la hora de llegada y, si está disponible, la hora de
+     * atención.
+     *
+     * @return Una cadena que representa la ficha con información resaltada en
+     * color.
      */
     @Override
     public String toString() {
@@ -129,13 +152,13 @@ public class Ficha {
         } else {
             color = verde;
         }
-        
+
         m = color + "Numero[" + numero + "] Nombre[" + nombre + "] Cedula[" + cedula + "] Llegada[" + getLlegadaStr() + "]";
-        
+
         if (atencion != null) {
             m += " Atencion[" + getAtencionStr() + "]";
         }
-        
+
         m += reset;
 
         return m;
