@@ -4,8 +4,10 @@ import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 
 /**
- * -m
- * 
+ * La clase Ficha representa la información de un ficha en un sistema,
+ * con atributos como el número de ficha, el nombre del cliente, 
+ * el número de cédula,la fecha y hora de llegada,
+ * la fecha y hora de atención (si aplica), y si el cliente es preferencial o no.
  * 
  * @author Allan Nunez Brenes, Anyelo Vargas Merlo
  */
@@ -15,12 +17,14 @@ public class Ficha {
     //Variables Globlales
     
     /**
-     * 
+     * Variable privada estatica que registra un total de instancias que se
+     * han creado de fichas normales, se inicializa en 1
      */
     private static int contNormal = 1;
     
     /**
-     * 
+     * Variable privada estatica que registra un total de instancias que se
+     * han creado de fichas preferenciales, se inicializa en 1
      */
     private static int contPreferencial = 1;
 
@@ -28,88 +32,89 @@ public class Ficha {
     //Número de ficha, Número de Cédula del cliente, Nombre del cliente, Fecha y hora de llegada(Formato timestamp)
     
     /**
-     * 
+     * Atributo tipo String que representa el codigo la ficha
      */
     private String numero;
     
     /**
-     * 
+     * Atributo tipo String que representa la cedula asociada a la ficha
      */
     private String cedula;
     
     /**
-     * 
+     * Atributo tipo String que representa el nombre asociada a la ficha
      */
     private String nombre;
     
     /**
-     * 
+     * Atributo Timestamp que representa la Fecha y hora de llegada al sistema 
      */
     private Timestamp llegada;
     
     /**
-     * 
+     * Atributo Timestamp que representa la Fecha y hora de atencion al sistema 
      */
     private Timestamp atencion;
     
     /**
-     * 
+     * Atributo tipo boolean que representa indica si la ficha es preferencial (true)
+     * o regular (false).
      */
     private boolean preferencial;
 
     //Metodos Get y set
     
     /**
-     * 
-     * @return 
+     * Obtiene el codigo de la ficha.
+     * @return El codigo de la ficha.
      */
     public String getNumero() {
         return numero;
     }
 
     /**
-     * 
-     * @param numero 
+     * Establece el número de cédula del cliente.
+     * @param numero El nuevo número de la ficha.
      */
     public void setNumero(String numero) {
         this.numero = numero;
     }
 
     /**
-     * 
-     * @return 
+     * Obtiene el número de cédula del cliente.
+     * @return El número de cédula del cliente.
      */
     public String getCedula() {
         return cedula;
     }
 
     /**
-     * 
-     * @param cedula 
+     * Establece el número de cédula del cliente.
+     * @param cedula El nuevo número de cédula del cliente.
      */
     public void setCedula(String cedula) {
         this.cedula = cedula;
     }
 
     /**
-     * 
-     * @return 
+     * Obtiene el nombre del cliente.
+     * @return El nombre del cliente.
      */
     public String getNombre() {
         return nombre;
     }
 
     /**
-     * 
-     * @param nombre 
+     * Establece el nombre del cliente.
+     * @param nombre El nuevo nombre del cliente.
      */
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
 
     /**
-     * 
-     * @return 
+     * Obtiene la fecha y hora de llegada del cliente en formato de timestamp.
+     * @return La fecha y hora de llegada del cliente.
      */
     public Timestamp getLlegada() {
         return llegada;
@@ -125,24 +130,24 @@ public class Ficha {
     }
 
     /**
-     * 
-     * @param llegada 
+     * Establece la fecha y hora de llegada del cliente.
+     * @param llegada La nueva fecha y hora de llegada del cliente.
      */
     public void setLlegada(Timestamp llegada) {
         this.llegada = llegada;
     }
 
     /**
-     * 
-     * @return 
+     * Obtiene la fecha y hora de atención del cliente en formato de timestamp.
+     * @return La fecha y hora de atención del cliente.
      */
     public Timestamp getAtencion() {
         return atencion;
     }
 
     /**
-     * 
-     * @param atencion 
+     * Establece la fecha y hora de llegada del cliente.
+     * @param atencion La nueva fecha y hora de llegada del cliente.
      */
     public void setAtencion(Timestamp atencion) {
         this.atencion = atencion;
@@ -158,16 +163,17 @@ public class Ficha {
     }
 
     /**
+     * Verifica si el cliente es preferencial.
      * 
-     * @return 
+     * @return {@code true} si el cliente es preferencial, {@code false} si es regular.
      */
     public boolean isPreferencial() {
         return preferencial;
     }
 
     /**
-     * 
-     * @param preferencial 
+     * Establece si el cliente es preferencial o no.
+     * @param preferencial Indica si el cliente es preferencial (true) o no (false).
      */
     public void setPreferencial(boolean preferencial) {
         this.preferencial = preferencial;

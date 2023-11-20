@@ -2,46 +2,52 @@
 package bancoabc;
 
 /**
- * -m
+ * La clase Cajero representa un cajero del banco con un identificador unico,
+ * una ficha que esta siendo atentidoy una bitacora que registra su actividad.
  * 
  * @author Anyelo Vargas Merlo
  */
 public class Cajero {
 
-    /**
+     /**
+     * Atributo de tipo entero que representa el identificador único del cajero.
      * 
      */
     private int id;
     
     /**
-     * 
+     * Atributo de tipo Ficha que representa la ficha que el cajero esta 
+     * atentiendo
      */
     private Ficha atendiendo;
     
     /**
-     * 
+     * Atributo de tipo BitacoraFichas que representa la bitacora de fichas
+     * del cajero
      */
     private BitacoraFichas listaBitacora;
 
     /**
-     * 
-     * @return 
+     * Obtiene el identificador único del cajero.
+     * @return El identificador único del cajero.
      */
     public int getId() {
         return id;
     }
     
     /**
-     * 
-     * @param id 
+     * Establece el identificador único del cajero.
+     * @param id El identificador único del cajero.
+
      */
     public void setId(int id) {
         this.id = id;
     }
     
     /**
-     * 
-     * @return 
+     * Obtiene la ficha que el cajero está actualmente atendiendo.
+     * @return La ficha que el cajero está atendiendo, o null si no 
+     * está atendiendo ninguna.
      */
     public Ficha getAtendiendo() {
         return atendiendo;

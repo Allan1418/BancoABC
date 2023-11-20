@@ -11,20 +11,21 @@ package bancoabc;
 public class Pila<tipo> {
     
     /**
-     * 
+     * Atributo de tipo Nodo<tipo> que representa la cabeza del pila
      */
     private Nodo<tipo> cima;
 
     /**
-     * 
+     * Crea una pila vacía.
      */
     public Pila() {
         this.cima = null;
     }
     
     /**
-     * 
-     * @return 
+     * Verifica si la pila está vacía.
+     * @return {@code true} si la pila está vacía, 
+     * {@code false} en caso contrario
      */
     public boolean isVacia() {
         return this.cima == null;

@@ -4,7 +4,11 @@ package bancoabc;
 import static bancoabc.estTer.*;
 
 /**
- * -m
+ * Clase que gestiona la generación de informes de fichas de la Bitacora de los cajeros, 
+ * permitiendo opciones de filtrado y ordenamiento.
+ * La clase almacena las fichas en una lista enlazada simple y brinda métodos 
+ * para insertar las fichas una por una o de una lista enlazada simple completa,
+ * así como imprimir el contenido del informe.
  * 
  * @author Allan Nunez Brenes
  */
@@ -17,12 +21,14 @@ public class Reporteria {
     private Nodo<Ficha> cabeza;
     
     /**
-     * 
+     * Atributo de tipo boleano que indica si el reporte se ordena por tiempo
+     * de llegada (true) o tiempo de atencion (false)
      */
     private boolean llegada;
     
     /**
-     * 
+     Atributo de tipo boleano que indica si el reporte se ordena
+     * ascendentemente (true) o descendente (false)
      */
     private boolean ascendente;
     
@@ -42,56 +48,62 @@ public class Reporteria {
     }
 
     /**
-     * 
-     * @param cabeza 
+     * Establece el nodo cabeza de la lista de fichas para el reporte.
+     * @param cabeza El nuevo nodo cabeza de la lista.
      */
     public void setCabeza(Nodo<Ficha> cabeza) {
         this.cabeza = cabeza;
     }
 
     /**
-     * 
-     * @return 
+     * Verifica si el reporte se ordena por tiempo de llegada.
+     * @return {@code true} si el reporte se ordena por tiempo de llegada, 
+     * {@code false} si el reporte se ordena por timepo de atencion.
      */
     public boolean isLlegada() {
         return llegada;
     }
 
     /**
-     * 
-     * @param llegada 
+     * Establece si el nuevo ordenamiento del reporte.
+     *  @param llegada {@code true} se ordena por tiempo de llegada,
+     * {@code false} se ordena por tiempo de atencion.
      */
     public void setLlegada(boolean llegada) {
         this.llegada = llegada;
     }
 
     /**
-     * 
-     * @return 
+     * Verifica si el ordenamiento es ascendente.
+     * @return {@code true} si el ordenamiento es ascendente,
+     * {@code false} si el ordenamiento es descendente.
      */
     public boolean isAscendente() {
         return ascendente;
     }
 
     /**
-     * 
-     * @param ascendente 
+     * Establece el ordenamiento del reporte
+     * @param ascendente Indica si el ordenamiento es ascendente o descendente.
      */
     public void setAscendente(boolean ascendente) {
         this.ascendente = ascendente;
     }
     
     /**
+     * Obtiene el tipo de ficha a considerar en el reporte.
+     * @return El tipo de ficha a considerar en el reporte 
      * 
-     * @return 
+     * (TRUE para preferencial, FALSE para regular, NO_APLICA para ambas).
      */
     public estTer getTipoFicha() {
         return tipoFicha;
     }
     
     /**
-     * 
-     * @param tipoFicha 
+     * Establece el tipo de ficha a considerar en el reporte.
+     * @param tipoFicha El nuevo tipo de ficha a considerar en el reporte
+     * (TRUE para preferencial, FALSE para regular, NO_APLICA para ambas).
      */
     public void setTipoFicha(estTer tipoFicha) {
         this.tipoFicha = tipoFicha;

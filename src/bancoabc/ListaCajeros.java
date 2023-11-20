@@ -4,7 +4,8 @@ import static bancoabc.estTer.*;
 import java.util.ArrayList;
 
 /**
- * -m
+ * La clase ListaCajeros representa una lista enlazada simple de 
+ * objetos tipo Cajero, ordenada ascendentenmente por orden de atencion.
  * 
  * @author Allan Nunez Brenes
  */

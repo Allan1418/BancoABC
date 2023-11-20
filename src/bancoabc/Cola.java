@@ -25,16 +25,16 @@ public class Cola<tipo> {
     private int size;
     
     /**
-     * 
-     * @return 
+     * Obtiene el tamaño actual de la cola.
+     * @return El tamaño actual de la cola.
      */
     public int getSize() {
         return size;
     }
     
     /**
-     * 
-     * @param size 
+     * Establece el tamaño de la cola
+     * @param size El nuevo tamaño de la cola.
      */
     public void setSize(int size) {
         this.size = size;
