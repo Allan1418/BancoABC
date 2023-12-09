@@ -44,7 +44,7 @@ public class BancoABC {
     public static Cola<Ficha> fichasPreferenciales = new Cola<>();
     
     /**
-     * -m
+     * Variable estática de tipo `ChatBot` que representa el chatbot.
      */
     public static ChatBot chatBot = new ChatBot();
 
@@ -289,7 +289,7 @@ public class BancoABC {
     }
     
     /**
-     * -m
+     * Monta el chatbot, insertando las Nodo y las preguntas 
      */
     public static void montarChatbot(){
 //        System.out.println(chatBot.insertar("1", "Banca de Personas"));
@@ -354,10 +354,10 @@ public class BancoABC {
     }
 
     /**
-     * -m
+     *
      * Este método muestra un menú principal. El menú incluye opciones para
      * gestionar cheques, listar cajas activas, gestionar cajas, generar
-     * reportes, obtener ayuda y salir del programa.
+     * reportes, ChatBot, obtener ayuda y salir del programa.
      *
      * Las opciones del menú están representadas por un arreglo de strings y se
      * muestran mediante un cuadro de diálogo de opciones JOptionPane. 
@@ -496,7 +496,10 @@ public class BancoABC {
     }
     
     /**
-     * -m
+     * Este método proporciona una interfaz de usuario para interactuar
+     * con el chatbot. Muestra un menú con tres opciones: "Ver chatbot",
+     * "Mantenimiento" y "SALIR". El usuario puede elegir una opción para
+     * interactuar con el chatbot o salir del programa.
      */
     public static void opChatBot() {
 
@@ -541,7 +544,11 @@ public class BancoABC {
     }
     
     /**
-     * -m
+     * Este método proporciona una interfaz de usuario para realizar
+     * operaciones de mantenimiento en el chatbot. Muestra un menú con 
+     * cuatro opciones: "Añadir Nodos", "Añadir Pregunta", "Ver Preguntas" 
+     * y "SALIR". El usuario puede elegir una opción para agregar nodos,
+     * preguntas, ver preguntas o salir del menú de mantenimiento.
      */
     public static void opMantChatBot() {
 
@@ -940,9 +947,13 @@ public class BancoABC {
     }
     
     /**
-     * -m
-     * @param actual
-     * @return 
+     * Este método muestra el nodo actual del árbol del chatbot 
+     * y navega a otros nodos según las selecciones del usuario. 
+     * Itera hasta que el usuario decide detenerse o
+     * llega a un nodo hoja que contiene preguntas.
+     * @param actual Un objeto NodoDoble que
+     * representa el nodo actual en el árbol del chatbot.
+     * @return true si el usuario elige continuar, falso en caso contrario.
      */
     public static boolean verChatbot(NodoDoble<DatoChatBot> actual){
         
@@ -979,8 +990,11 @@ public class BancoABC {
     }
     
     /**
-     * -m
-     * @param lista
+     * Este método muestra las preguntas y sus correspondientes
+     * respuestas desde un objeto ListaPreguntas.
+     * Permite al usuario seleccionar una pregunta y muestra su respuesta.
+     * @param lista Un objeto ListaPreguntas que 
+     * contiene las preguntas y sus respuestas.
      */
     public static void mostrarPreguntasChatbot(ListaPreguntas lista){
         
@@ -1001,7 +1015,12 @@ public class BancoABC {
     }
     
     /**
-     * -m
+     * Este método agrega un nuevo nodo al árbol del chatbot. 
+     * Se solicita al usuario que ingrese el ID del nodo principal y 
+     * el nombre del nuevo nodo. Si el nodo principal existe y el nombre
+     * no está vacío, el nodo se agrega al árbol. El método devuelve el ID
+     * del nuevo nodo, o nulo si el nodo principal no existe o
+     * el nombre está vacío.
      */
     public static void insertarNodoChatBot(){
         
@@ -1039,7 +1058,12 @@ public class BancoABC {
     }
     
     /**
-     * -m
+     * Este método agrega una nueva pregunta a un nodo existente en el
+     * árbol del chatbot. Se solicita al usuario que ingrese el ID del nodo,
+     * la pregunta y la respuesta. Si el nodo existe y la pregunta y
+     * la respuesta no están vacías, la pregunta se agrega al nodo. 
+     * El método devuelve verdadero si la pregunta se agregó correctamente, 
+     * o falso si el nodo no existe o la pregunta o respuesta está vacía.
      */
     public static void insertarPreguntaChatBot(){
         
@@ -1085,7 +1109,11 @@ public class BancoABC {
     }
     
     /**
-     * -m
+     * Este método prepara las preguntas para un nodo determinado en el árbol 
+     * del chatbot. Se solicita al usuario que ingrese el ID del nodo y 
+     * las preguntas para ese nodo se recuperan del chatbot. 
+     * Si el nodo existe y tiene preguntas, se llama al método 
+     * {@code mostrarPreguntasChatbot()} para mostrar las preguntas al usuario.
      */
     public static void prepararPreguntasChatbot(){
         

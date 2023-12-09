@@ -2,26 +2,54 @@
 package bancoabc;
 
 /**
- *-m
+ * Esta clase representa un chatbot y su estructura de datos.
+ * Proporciona métodos para insertar nodos, preguntas, 
+ * recuperar preguntas y navegar por el árbol del chatbot.
  * @author allan
  */
 public class ChatBot {
     
+    /**
+     * Un objeto NodoDoble que representa el nodo raíz del árbol del chatbot.
+     */
     private NodoDoble<DatoChatBot> raiz;
 
+    /**
+     * Obtiene el nodo raíz del árbol del chatbot.
+     * 
+     * @return El nodo raíz.
+     */
     public NodoDoble<DatoChatBot> getRaiz() {
         return raiz;
     }
 
+    /**
+     * Establece el nodo raíz del árbol del chatbot.
+     * 
+     * @param raiz  El nuevo nodo raíz
+     */
     public void setRaiz(NodoDoble<DatoChatBot> raiz) {
         this.raiz = raiz;
     }
 
+    /**
+     * Construye un nuevo objeto ChatBot con un nodo raíz predeterminado.
+     */
     public ChatBot() {
         NodoDoble<DatoChatBot> nuevo = new NodoDoble<>(new DatoChatBot("1", "Preguntas Frecuentes (FAQ)"));
         this.raiz = nuevo;
     }
     
+    /**
+     * Este método privado intenta recuperar el nodo con la ID especificada
+     * del árbol del chatbot. Primero intenta llamar al método
+     * getNodo(String idNodo, NodoDoble<DatoChatBot> actual),
+     * comenzando desde el nodo raíz. Si se encuentra el nodo, 
+     * se devuelve. De lo contrario, se devuelve nulo.
+     * 
+     * @param idNodo El ID del nodo a buscar.
+     * @return El nodo con el ID especificado, o nulo si no se encuentra el nodo.
+     */
     private NodoDoble<DatoChatBot> getNodo(String idNodo) {
 
         NodoDoble<DatoChatBot> retorno = null;
@@ -35,6 +63,15 @@ public class ChatBot {
         return retorno;
     }
 
+    /**
+     * Este método auxiliar privado busca recursivamente 
+     * el nodo con el ID especificado dentro del subárbol
+     * con raíz en el nodo real proporcionado.
+     * 
+     * @param idNodo El ID del nodo a buscar.
+     * @param actual El nodo actual en el subárbol que se está buscando.
+     * @return El nodo con el ID especificado, o nulo si no se encuentra el nodo.
+     */
     private NodoDoble<DatoChatBot> getNodo(String idNodo, NodoDoble<DatoChatBot> actual) {
 
         if (actual == null) {
@@ -60,6 +97,15 @@ public class ChatBot {
         return null;
     }
     
+    /**
+     * Este método público inserta un nuevo nodo con el nombre 
+     * especificado como hijo del nodo con el ID especificado.
+     * 
+     * @param idPadre El ID del nodo principal
+     * @param nombre El nombre del nuevo nodo.
+     * @return El ID del nodo recién insertado,
+     * o nulo si el nodo no se pudo insertar.
+     */
     public String insertar(String idPadre, String nombre) {
 
         NodoDoble<DatoChatBot> nodo = getNodo(idPadre);
@@ -85,6 +131,16 @@ public class ChatBot {
 
     }
     
+    /**
+     * Este método público agrega una nueva pregunta y 
+     * su respuesta al nodo con el ID especificado.
+     * 
+     * @param idNodo El ID del nodo.
+     * @param pregunta La pregunta.
+     * @param respuesta La respuesta.
+     * @return  Es verdadero si la pregunta se agregó correctamente o
+     * falso si no se pudo encontrar el nodo o no es un nodo de pregunta.
+     */
     public boolean insertarPregunta(String idNodo, String pregunta, String respuesta) {
 
         NodoDoble<DatoChatBot> nodo = getNodo(idNodo);
@@ -102,6 +158,14 @@ public class ChatBot {
 
     }
     
+    /**
+     * Este método público recupera la lista de preguntas y 
+     * respuestas asociadas con el nodo con el ID especificado.
+     * 
+     * @param idNodo El ID del nodo.
+     * @return La lista de preguntas y respuestas asociadas con el nodo, 
+     * o nula si no se pudo encontrar el nodo.
+     */
     public ListaPreguntas getListapreguntas(String idNodo) {
 
         NodoDoble<DatoChatBot> nodo = getNodo(idNodo);
