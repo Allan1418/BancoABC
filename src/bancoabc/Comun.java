@@ -51,8 +51,8 @@ public class Comun {
      * @param opciones Un array de strings que representa las opciones de los
      * botones en la ventana de diálogo.
      * @param ask La pregunta o mensaje que se muestra en la ventana de diálogo.
-     * @return El índice del botón seleccionado o -1 si se selecciona el botón
-     * "Volver" o cierra la ventana de dialogo.
+     * @return El índice del botón seleccionado, -2 si se selecciona el botón
+     * "Volver" y -1 si cierra la ventana de dialogo.
      * @throws IllegalArgumentException Si el array de opciones es nulo o vacío.
      */
     public static int mostrarBotones(String[] opciones, String ask) {
@@ -73,7 +73,7 @@ public class Comun {
                 opciones[opciones.length - 1]);
 
         if (opt == opciones.length - 1 && opciones[opciones.length - 1] == "Volver") {
-            return -1;
+            return -2;
         }
 
         return opt;
