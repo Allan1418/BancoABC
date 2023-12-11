@@ -1,7 +1,6 @@
 package bancoabc;
 
 import java.sql.Timestamp;
-import java.util.Arrays;
 import java.util.Calendar;
 import javax.swing.JOptionPane;
 
@@ -62,14 +61,14 @@ public class BancoABC {
     public static void main(String[] args) {
 
         //arranque del sistema
-//        montarChatbot();
-//        defCajas();
+        montarChatbot();
+        defCajas();
         
         
         //arranque con Simulacion montada
-        montarChatbot();
-        montarSimulacion();
-        menu();
+//        montarChatbot();
+//        montarSimulacion();
+//        menu();
 
         //Pruebas
                 
