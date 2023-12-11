@@ -2,11 +2,11 @@
 package bancoabc;
 
 /**
- * Esta clase representa un objeto de datos utilizado en el chatbot. 
+ * Esta clase representa un objeto de datos utilizado en la lista de Preguntas. 
  * Almacena información sobre una pregunta, incluido su ID,
  * pregunta y respuesta.
  * 
- * @author allan
+ * @author Anyelo Vargas Merlo
  */
 public class DatoPregunta {
     
@@ -53,7 +53,7 @@ public class DatoPregunta {
     }
 
     /**
-     * Plantea la pregunta.
+     * Establece la pregunta.
      * 
      * @param pregunta La nueva pregunta (String).
      */
@@ -81,7 +81,7 @@ public class DatoPregunta {
 
     /**
      * Crea un nuevo objeto DatoPregunta con la 
-     * pregunta y respuesta especificadas.
+     * pregunta y respuesta especificados.
      * 
      * @param pregunta La pregunta (String).
      * @param respuesta La respuesta (String).

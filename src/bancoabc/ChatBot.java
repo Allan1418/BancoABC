@@ -2,10 +2,12 @@
 package bancoabc;
 
 /**
- * Esta clase representa un chatbot y su estructura de datos.
- * Proporciona métodos para insertar nodos, preguntas, 
- * recuperar preguntas y navegar por el árbol del chatbot.
- * @author allan
+ * Esta clase representa un chatbot con una estructura 
+ * de datos de tipo arbol binario.
+ * Proporciona métodos para insertar nodos, preguntas y 
+ * recuperar lista de preguntas de un nodo.
+ * 
+ * @author Allan Nunez Brenes.
  */
 public class ChatBot {
     
@@ -98,10 +100,10 @@ public class ChatBot {
     }
     
     /**
-     * Este método público inserta un nuevo nodo con el nombre 
-     * especificado como hijo del nodo con el ID especificado.
+     * Este método público inserta un nuevo nodo como hijo 
+     * del nodo especificado.
      * 
-     * @param idPadre El ID del nodo principal
+     * @param idPadre El ID del nodo padre.
      * @param nombre El nombre del nuevo nodo.
      * @return El ID del nodo recién insertado,
      * o nulo si el nodo no se pudo insertar.
@@ -135,11 +137,11 @@ public class ChatBot {
      * Este método público agrega una nueva pregunta y 
      * su respuesta al nodo con el ID especificado.
      * 
-     * @param idNodo El ID del nodo.
-     * @param pregunta La pregunta.
-     * @param respuesta La respuesta.
+     * @param idNodo El ID del nodo donde se quiere insertar la nueva pregunta.
+     * @param pregunta La nueva pregunta.
+     * @param respuesta La nueva respuesta.
      * @return  Es verdadero si la pregunta se agregó correctamente o
-     * falso si no se pudo encontrar el nodo o no es un nodo de pregunta.
+     * falso si no se pudo encontrar el nodo o no es una hoja.
      */
     public boolean insertarPregunta(String idNodo, String pregunta, String respuesta) {
 
@@ -164,7 +166,7 @@ public class ChatBot {
      * 
      * @param idNodo El ID del nodo.
      * @return La lista de preguntas y respuestas asociadas con el nodo, 
-     * o nula si no se pudo encontrar el nodo.
+     * o nulo si no se pudo encontrar el nodo o no tiene lista de preguntas.
      */
     public ListaPreguntas getListapreguntas(String idNodo) {
 

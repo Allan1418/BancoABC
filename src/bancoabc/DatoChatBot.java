@@ -5,12 +5,12 @@ package bancoabc;
  *Esta clase representa un objeto de datos utilizado en el chatbot.
  * Almacena información sobre un nodo en el árbol del chatbot, incluido su ID,
  * nombre y lista de preguntas (si es un nodo de preguntas).
- * @author allan
+ * @author Anyelo Vargas Merlo
  */
 public class DatoChatBot {
     
     /**
-     * Una cadena que representa el identificador único del nodo.
+     * Una String que representa el identificador único del nodo.
      */
     private String id;
     
@@ -73,7 +73,7 @@ public class DatoChatBot {
     /**
      * Establece la lista de preguntas y respuestas para el nodo.
      * 
-     * @param preguntas Las nuevas preguntas para le nodo
+     * @param preguntas La nueva lista de preguntas preguntas para el nodo
      */
     public void setPreguntas(ListaPreguntas preguntas) {
         this.preguntas = preguntas;
@@ -102,20 +102,21 @@ public class DatoChatBot {
     }
     
     /**
-     * (booleano) Comprueba si el nodo es un nodo de 
-     * preguntas (tiene una lista de preguntas).
+     * (booleano) Comprueba si la lista de preguntas es un objeto o nulo 
+     * (tiene una lista de preguntas).
      * 
-     * @return true if the node is a question node, false otherwise.
+     * @return true si la lista de preguntas es un objeto, falso en caso de que
+     * sea nulo.
      */
     public boolean isPreguntas(){
         return preguntas != null;
     }
 
     /**
-     * (Cadena) Anula el método toString() predeterminado 
+     * (String) sobrescribe el método toString() predeterminado 
      * para devolver el nombre del nodo.
      * 
-     * @return El nombre del nodo (Cadena).
+     * @return El nombre del nodo (String).
      */
     @Override
     public String toString() {

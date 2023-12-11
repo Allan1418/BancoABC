@@ -88,19 +88,18 @@ public class NodoDoble<tipo> {
      * Comprueba si tanto `enlaceDer` como `enlaceIzq` no son nulos.
      * 
      * @return Verdadero si ambos enlaces no 
-     * son nulos; Falso en caso contrario
+     * son nulos; Falso en caso contrario.
      */
     public boolean isEnlaces(){
         return enlaceDer != null && enlaceIzq != null;
     }
     
     /**
-     * Crea una matriz de cadenas que contienen los datos de
-     * `enlaceDer` y `enlaceIzq`, y agrega "Volver" al final en caso de que 
-     * el `enlaceDer` y `enlaceIzq` sea ´null´.
+     * Crea un array se Strings que contienen los datos de
+     * `enlaceDer` y `enlaceIzq` (si no son nulos) y agrega "Volver" al final.
      * 
-     * @return Un array de cadenas que contienen 
-     * los datos de ambos enlaces y "Volver"
+     * @return Un array de Strings que contienen 
+     * los datos de ambos enlaces y "Volver".
      */
     public String[] getEnlacesString(){
         

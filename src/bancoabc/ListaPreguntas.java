@@ -2,9 +2,10 @@
 package bancoabc;
 
 /**
- * Representa una lista de preguntas y 
- * respuestas utilizando una lista enlazada circular.
- * @author allan
+ * Representa una lista de preguntas y respuestas 
+ * utilizando una lista enlazada circular simple.
+ * 
+ * @author Allan Nunez Brenes, Anyelo Vargas Merlo
  */
 public class ListaPreguntas {
     
@@ -64,7 +65,8 @@ public class ListaPreguntas {
     
     
     /**
-     * Inserta una nueva pregunta y respuesta en la lista.
+     * Inserta una nueva pregunta y respuesta al final la lista, o al principio
+     * si la lista esta vacia.
      * 
      * @param pregunta La pregunta a insertar.
      * @param respuesta La respuesta a la pregunta.
@@ -89,7 +91,7 @@ public class ListaPreguntas {
     }
     
     /**
-     * Obtiene una representación de cadena de todas las preguntas de la lista.
+     * Obtiene una representación en String de todas las preguntas de la lista.
      * 
      * @return Un String que contiene todas las preguntas de la lista.
      */
