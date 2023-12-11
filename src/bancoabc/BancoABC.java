@@ -1,6 +1,7 @@
 package bancoabc;
 
 import java.sql.Timestamp;
+import java.util.Arrays;
 import java.util.Calendar;
 import javax.swing.JOptionPane;
 
@@ -41,6 +42,11 @@ public class BancoABC {
      * establece el tipo de la cola en objetos de tipo Ficha
      */
     public static Cola<Ficha> fichasPreferenciales = new Cola<>();
+    
+    /**
+     * Variable estática de tipo ChatBot que representa el chatbot.
+     */
+    public static ChatBot chatBot = new ChatBot();
 
     //Metodo principal
     /**
@@ -56,15 +62,17 @@ public class BancoABC {
     public static void main(String[] args) {
 
         //arranque del sistema
-        defCajas();
+//        montarChatbot();
+//        defCajas();
         
         
         //arranque con Simulacion montada
-//        montarSimulacion();
-//        menu();
+        montarChatbot();
+        montarSimulacion();
+        menu();
 
         //Pruebas
-        
+                
         
     }
     
@@ -279,6 +287,54 @@ public class BancoABC {
         fichasRegulares.ingresarACola(g2);
 
     }
+    
+    /**
+     * Monta el chatbot, insertando los Nodos y las preguntas correspondientes
+     * al chatbot
+     */
+    public static void montarChatbot(){
+//        System.out.println(chatBot.insertar("1", "Banca de Personas"));
+//        System.out.println(chatBot.insertar("1", "Banca de Empresas"));
+//        System.out.println(chatBot.insertar("11", "Preguntas de Productos"));
+//        System.out.println(chatBot.insertar("11", "Otras Preguntas (Personas)"));
+//        System.out.println(chatBot.insertar("111", "Cuentas de Ahorro"));
+//        System.out.println(chatBot.insertar("111", "Tarjetas de Crédito"));
+//        System.out.println(chatBot.insertar("12", "PYMES"));
+//        System.out.println(chatBot.insertar("121", "Preguntas de Productos"));
+//        System.out.println(chatBot.insertar("121", "Otras Preguntas (PYME)"));
+//        
+//        System.out.println(chatBot.insertarPregunta("1111", "Requisitos para abrir una cuenta de ahorro", "Debe presentar: Cédula de Identidad Comprobante de Origen de los fondos y formulario firmado"));
+//        System.out.println(chatBot.insertarPregunta("1111", "Saldo mínimo en cuenta de ahorro", "Debe mantener un mínimo de 2000 colones para que su cuenta se mantenga activa."));
+//        System.out.println(chatBot.insertarPregunta("1112", "Requisitos para abrir una obtener una tarjeta de crédito?", "Debe presentar: Cédula de Identidad, tener un historial de crédito limpio y Comprobante de Origen de los fondos y formulario firmado"));
+//        System.out.println(chatBot.insertarPregunta("1112", "Tipos para tener una tarjeta de crédito", "Existen diferentes tipos: Devolución de un porcentaje, milla de viajero frecuente, ahorro en combustible, entre otros."));
+//        System.out.println(chatBot.insertarPregunta("112", "Horario de atención", "El horario de nuestras sucursales es de 8am a 4pm (Sucursales regulares) y de 10 am a 7pm (Sucursales en centros comerciales)"));
+//        System.out.println(chatBot.insertarPregunta("112", "Sucursales", "Tenemos sucursales en todo el país, ingrese a www.bancoabc.com/sucursales para mayor información"));
+//        System.out.println(chatBot.insertarPregunta("112", "Aplicar a una plaza", "Ingrese a www.bancoabc.com/reclutamiento ."));
+
+
+        
+        chatBot.insertar("1", "Banca de Personas");
+        chatBot.insertar("1", "Banca de Empresas");
+
+        chatBot.insertar("11", "Preguntas de Productos");
+        chatBot.insertar("11", "Otras Preguntas (Personas)");
+        chatBot.insertar("111", "Cuentas de Ahorro");
+        chatBot.insertar("111", "Tarjetas de Crédito");
+
+        chatBot.insertar("12", "PYMES");
+        chatBot.insertar("121", "Preguntas de Productos");
+        chatBot.insertar("121", "Otras Preguntas (PYME)");
+        
+        
+        chatBot.insertarPregunta("1111", "Requisitos para abrir una cuenta de ahorro", "Debe presentar: Cédula de Identidad Comprobante de Origen de los fondos y formulario firmado");
+        chatBot.insertarPregunta("1111", "Saldo mínimo en cuenta de ahorro", "Debe mantener un mínimo de 2000 colones para que su cuenta se mantenga activa.");
+        chatBot.insertarPregunta("1112", "Requisitos para abrir una obtener una tarjeta de crédito?", "Debe presentar: Cédula de Identidad, tener un historial de crédito limpio y Comprobante de Origen de los fondos y formulario firmado");
+        chatBot.insertarPregunta("1112", "Tipos para tener una tarjeta de crédito", "Existen diferentes tipos: Devolución de un porcentaje, milla de viajero frecuente, ahorro en combustible, entre otros.");
+        chatBot.insertarPregunta("112", "Horario de atención", "El horario de nuestras sucursales es de 8am a 4pm (Sucursales regulares) y de 10 am a 7pm (Sucursales en centros comerciales)");
+        chatBot.insertarPregunta("112", "Sucursales", "Tenemos sucursales en todo el país, ingrese a www.bancoabc.com/sucursales para mayor información");
+        chatBot.insertarPregunta("112", "Aplicar a una plaza", "Ingrese a www.bancoabc.com/reclutamiento .");
+        
+    }
 
     //Metodos de Menu
     
@@ -299,9 +355,10 @@ public class BancoABC {
     }
 
     /**
+     *
      * Este método muestra un menú principal. El menú incluye opciones para
      * gestionar cheques, listar cajas activas, gestionar cajas, generar
-     * reportes, obtener ayuda y salir del programa.
+     * reportes, ChatBot, obtener ayuda y salir del programa.
      *
      * Las opciones del menú están representadas por un arreglo de strings y se
      * muestran mediante un cuadro de diálogo de opciones JOptionPane. 
@@ -310,17 +367,17 @@ public class BancoABC {
      */
     public static void menu() {
 
-        String[] botones = {"Gestionar Cheques", "Listar Cajas Activas", "Gestionar Cajas", "Reporteria", "Ayuda", "SALIR"};
+        String[] botones = {"Gestionar Cheques", "Listar Cajas Activas", "Gestionar Cajas", "Reporteria", "ChatBot", "Ayuda", "SALIR"};
         int opcion;
         OUTER:
         while (true) {
             opcion = JOptionPane.showOptionDialog(null,
                     "MENU PRINCIPAL",
-                    "Menu temporal",
+                    "Banco ABC",
                     JOptionPane.DEFAULT_OPTION,
                     JOptionPane.INFORMATION_MESSAGE,
                     null,
-                    botones, botones[5]);
+                    botones, botones[6]);
 
             switch (opcion) {
                 case 0:
@@ -336,6 +393,9 @@ public class BancoABC {
                     iniciarReporte();
                     break;
                 case 4:
+                    opChatBot();
+                    break;
+                case 5:
                     opAyuda();
                     break;
                 default:
@@ -359,7 +419,7 @@ public class BancoABC {
         while (true) {
             opcion = JOptionPane.showOptionDialog(null,
                     "MENU CHEQUES GERENCIA",
-                    "Menu temporal",
+                    "Banco ABC",
                     JOptionPane.DEFAULT_OPTION,
                     JOptionPane.INFORMATION_MESSAGE,
                     null,
@@ -397,7 +457,7 @@ public class BancoABC {
         while (true) {
             opcion = JOptionPane.showOptionDialog(null,
                     "MENU CHEQUES GERENCIA",
-                    "Menu temporal",
+                    "Banco ABC",
                     JOptionPane.DEFAULT_OPTION,
                     JOptionPane.INFORMATION_MESSAGE,
                     null,
@@ -435,6 +495,94 @@ public class BancoABC {
         String m = "Banco ABC \n\nIntegrantes de la solucion: \n-Allan Nuñez Brenes  \n-Anyelo Vargas Merlo  \n-Maria Celeste Cerdas Hernandez";
         JOptionPane.showMessageDialog(null, m);
     }
+    
+    /**
+     * Este método proporciona una interfaz de usuario para interactuar
+     * con el chatbot. Muestra un menú con tres opciones: "Ver chatbot",
+     * "Mantenimiento" y "SALIR". El usuario puede elegir una opción para
+     * interactuar con el chatbot o salir al menu principal.
+     */
+    public static void opChatBot() {
+
+        String[] botones = {"Ver chatbot", "Mantenimiento", "SALIR"};
+        int opcion;
+        OUTER:
+        while (true) {
+            opcion = JOptionPane.showOptionDialog(null,
+                    "MENU CHAT-BOT",
+                    "Banco ABC",
+                    JOptionPane.DEFAULT_OPTION,
+                    JOptionPane.INFORMATION_MESSAGE,
+                    null,
+                    botones, botones[2]);
+
+            switch (opcion) {
+                case 0:
+                    JOptionPane.showMessageDialog(
+                        null, 
+                        ("Bienvenido al ChatBot de Banco ABC."), 
+                        "Banco ABC", 
+                        JOptionPane.INFORMATION_MESSAGE);
+                    
+                    verChatbot(chatBot.getRaiz());
+                    
+                    JOptionPane.showMessageDialog(
+                        null, 
+                        ("Gracias por usar nuestro ChatBot, Hasta luego."), 
+                        "Banco ABC", 
+                        JOptionPane.INFORMATION_MESSAGE);
+                    
+                    break;
+                case 1:
+                    opMantChatBot();
+                    break;
+                default:
+                    break OUTER;
+            }
+
+        }
+
+    }
+    
+    /**
+     * Este método proporciona una interfaz de usuario para realizar
+     * operaciones de mantenimiento en el chatbot. Muestra un menú con 
+     * cuatro opciones: "Añadir Nodos", "Añadir Pregunta", "Ver Preguntas" 
+     * y "SALIR". El usuario puede elegir una opción para agregar nodos,
+     * preguntas, ver preguntas o salir del menú de mantenimiento.
+     */
+    public static void opMantChatBot() {
+
+        String[] botones = {"Añadir Nodos", "Añadir Pregunta", "Ver Preguntas", "SALIR"};
+        int opcion;
+        OUTER:
+        while (true) {
+            opcion = JOptionPane.showOptionDialog(null,
+                    "MENU MANTENIMIENTO CHAT-BOT",
+                    "Banco ABC",
+                    JOptionPane.DEFAULT_OPTION,
+                    JOptionPane.INFORMATION_MESSAGE,
+                    null,
+                    botones, botones[3]);
+
+            switch (opcion) {
+                case 0:
+                    insertarNodoChatBot();
+                    break;
+                case 1:
+                    insertarPreguntaChatBot();
+                    break;
+                case 2:
+                    prepararPreguntasChatbot();
+                    break;
+                default:
+                    break OUTER;
+            }
+
+        }
+
+    }
+    
 
     //Metodos de opcion
     /**
@@ -565,7 +713,7 @@ public class BancoABC {
 
         String[] botones = cajeros.getArrayStr(true, false, estTer.TRUE);
         int preCaja = Comun.mostrarBotones(botones, "Seleccione la Caja que llama");
-        if (preCaja == -1) {
+        if (preCaja < 0) {
             return;
         }
 
@@ -671,7 +819,7 @@ public class BancoABC {
      */
     public static void cerrarFicha() {
 
-        int preCaj;
+        int preCaja;
         Cajero cajAct;
 
         String[] botones = cajeros.getArrayStr(true, false, estTer.FALSE);
@@ -681,12 +829,12 @@ public class BancoABC {
             return;
         }
 
-        preCaj = Comun.mostrarBotones(botones, "Seleccione el cajero que cierra Ficha");
-        if (preCaj == -1) {
+        preCaja = Comun.mostrarBotones(botones, "Seleccione el cajero que cierra Ficha");
+        if (preCaja < 0) {
             return;
         }
 
-        cajAct = cajeros.buscar(Integer.parseInt(botones[preCaj]));
+        cajAct = cajeros.buscar(Integer.parseInt(botones[preCaja]));
 
         cajAct.getAtendiendo().setAtencion(new Timestamp(System.currentTimeMillis()));
         cajAct.getListaBitacora().insertar(cajAct.getAtendiendo());
@@ -705,17 +853,17 @@ public class BancoABC {
      * bitácora de cada uno de ellos.
      */
     public static void imprBitacoras() {
-        int preCaj;
+        int preCaja;
         Cajero cajAct;
 
         String[] botones = cajeros.getArrayStr(true, true, estTer.NO_APLICA);
 
-        preCaj = Comun.mostrarBotones(botones, "Seleccione el cajero a consultar Bitacora");
-        if (preCaj == -1) {
+        preCaja = Comun.mostrarBotones(botones, "Seleccione el cajero a consultar Bitacora");
+        if (preCaja < 0) {
             return;
         }
 
-        if (preCaj == botones.length - 2) {
+        if (preCaja == botones.length - 2) {
             System.out.println("\n---Bitacora de todos los cajeros---");
             for (int i = 0; i < cajeros.getSize(); i++) {
 
@@ -728,7 +876,7 @@ public class BancoABC {
             return;
         }
 
-        cajAct = cajeros.buscar(Integer.parseInt(botones[preCaj]));
+        cajAct = cajeros.buscar(Integer.parseInt(botones[preCaja]));
         System.out.println("\n---Bitacora del Cajero #" + cajAct.getId() + "---");
         cajAct.getListaBitacora().imprimir();
         System.out.println("----------------------------");
@@ -746,7 +894,7 @@ public class BancoABC {
      * Finalmente, muestra el informe generado por la consola.
      */
     public static void iniciarReporte() {
-        int preCaj, preElemento, preOrdena;
+        int preCaja, preElemento, preOrdena;
         estTer preTiFicha;
 
         String[] botCaj = cajeros.getArrayStr(true, true, estTer.NO_APLICA);
@@ -754,8 +902,8 @@ public class BancoABC {
         String[] botElemento = {"Fecha Y hora de llegada", "Fecha Y hora de Atencion", "Volver"};
         String[] botOrdena = {"Ascendentemente", "Descendentemente", "Volver"};
 
-        preCaj = Comun.mostrarBotones(botCaj, "Seleccione el cajero del Reporte");
-        if (preCaj == -1) {
+        preCaja = Comun.mostrarBotones(botCaj, "Seleccione el cajero del Reporte");
+        if (preCaja < 0) {
             return;
         }
 
@@ -774,29 +922,243 @@ public class BancoABC {
         }
 
         preElemento = Comun.mostrarBotones(botElemento, "Seleccione el elemento de ordenamiento");
-        if (preElemento == -1) {
+        if (preElemento < 0) {
             return;
         }
 
         preOrdena = Comun.mostrarBotones(botOrdena, "Seleccione el criterio de ordenamiento");
-        if (preOrdena == -1) {
+        if (preOrdena < 0) {
             return;
         }
 
         Reporteria repoActual = new Reporteria((preElemento == 0), (preOrdena == 0), preTiFicha);
 
-        if (preCaj == botCaj.length - 2) {
+        if (preCaja == botCaj.length - 2) {
             for (int i = 0; i < cajeros.getSize(); i++) {
                 repoActual.insertarLista(cajeros.buscar(i + 1).getListaBitacora().getCabeza());
             }
         } else {
-            repoActual.insertarLista(cajeros.buscar(Integer.parseInt(botCaj[preCaj])).getListaBitacora().getCabeza());
+            repoActual.insertarLista(cajeros.buscar(Integer.parseInt(botCaj[preCaja])).getListaBitacora().getCabeza());
         }
 
         System.out.println("\n---Inicio Reporte Personalizado---");
         repoActual.imprimir();
         System.out.println("----Fin Reporte Personalizado-----");
 
+    }
+    
+    /**
+     * Este método muestra el nodo actual del árbol del chatbot 
+     * y navega a otros nodos de manera recursiva según 
+     * las selecciones del usuario a traves de botones desplegados segun los
+     * hijos del nodo.
+     * 
+     * Itera si el usuario decide volver o sale del bucle si decide salirse.
+     * 
+     * Si llega a un nodo hoja que contiene preguntas llama 
+     * al metodo {@code mostrarPreguntasChatbot(lista)}.
+     * 
+     * @param actual Un objeto NodoDoble que
+     * representa el nodo actual en el árbol del chatbot.
+     * 
+     * @return true si el usuario elige volver al nodo anterior, 
+     * falso en caso que decida salir del chatBot.
+     */
+    public static boolean verChatbot(NodoDoble<DatoChatBot> actual){
+        
+        boolean mantener = true;
+        while (mantener) {
+            
+            
+            if (actual.getDato().isPreguntas()) {
+                mostrarPreguntasChatbot(actual.getDato().getPreguntas());
+                return true;
+            }
+            
+            String[] array = actual.getEnlacesString();
+            int op = Comun.mostrarBotones(array, (actual.getDato().getName() + " - " + actual.getDato().getId()));
+            
+            if (op < 0) {
+                return op != -1;
+            }
+            
+            
+            String siguiente = array[op];
+            
+            if (siguiente.equals(actual.getEnlaceIzq().getDato().getName())) {
+                mantener = verChatbot(actual.getEnlaceIzq());
+            } else{
+                mantener = verChatbot(actual.getEnlaceDer());
+            }
+            
+            
+        }
+        
+        
+        return false;
+    }
+    
+    /**
+     * Este método muestra las preguntas y sus correspondientes
+     * respuestas desde un objeto ListaPreguntas.
+     * Permite al usuario seleccionar una pregunta y muestra su respuesta.
+     * @param lista Un objeto ListaPreguntas que 
+     * contiene las preguntas y sus respuestas.
+     */
+    public static void mostrarPreguntasChatbot(ListaPreguntas lista){
+        
+        String preOp;
+        String re = "[" + (lista.getCabeza().getDato().getId() + 1) + "-" + (lista.getUltimo().getDato().getId() + 1) + "]";
+        
+        while (true) {            
+            preOp = Comun.regexConfirm(re, lista.getPreguntas(), "Escriba un numero entre " + re);
+            if (preOp == null) {
+                return;
+            }
+            
+            JOptionPane.showMessageDialog(null, lista.getRespuesta(Integer.parseInt(preOp) -1));
+            
+        }
+        
+        
+    }
+    
+    /**
+     * Este método agrega un nuevo nodo al árbol del chatbot. 
+     * Se solicita al usuario que ingrese el ID del nodo padre y 
+     * el nombre del nuevo nodo.
+     * 
+     * Si el nodo padre existe, no contiene lista de preguntas y
+     * se puede agregar un hijo. El nuevo nodo se agrega al árbol.
+     * 
+     * Si el nuevo nodo se agrego muestra un mensaje con la nueva id del nodo
+     * agregado, caso contrario muestra un mensaje de error y vuelve a iterar
+     * hasta que el usuario decida salirse.
+     */
+    public static void insertarNodoChatBot(){
+        
+        String prePadre, preNombre, resultado;
+        
+        while (true) {            
+            
+            prePadre = Comun.regexConfirm("[1-2]+", "Escriba el ID del padre donde quiere insertar el Nodo", "Escriba un ID en el formato valido!");
+            if (prePadre == null) {
+                return;
+            }
+            
+            preNombre = Comun.regexConfirm(".+", "Escriba el nombre del nuevo Nodo a insertar", "El campo no puede ir vacio!");
+            if (preNombre == null) {
+                return;
+            }
+            
+            resultado = chatBot.insertar(prePadre, preNombre);
+            if (resultado != null) {
+                JOptionPane.showMessageDialog(
+                        null, 
+                        ("El nodo " + preNombre + " Se inserto con exito en el Nodo: " + resultado), 
+                        "Banco ABC", 
+                        JOptionPane.INFORMATION_MESSAGE);
+                return;
+            } else{
+                JOptionPane.showMessageDialog(
+                        null, 
+                        ("El nodo " + prePadre + " No se encontro o No se puede insertar! \nIntente con otro"), 
+                        "Banco ABC", 
+                        JOptionPane.ERROR_MESSAGE);
+            }
+            
+        }
+    }
+    
+    /**
+     * Este método agrega una nueva pregunta a un nodo existente en el
+     * árbol del chatbot. 
+     * 
+     * Se solicita al usuario que ingrese el ID del nodo (donde desea agregar
+     * la pregunta), la pregunta y la respuesta. 
+     * 
+     * Si el nodo existe y es una hoja, la pregunta se agrega a la lista de
+     * preguntas del nodo. 
+     * 
+     * Si se agrega la nueva pregunta muestra un mensaje de confirmacion, caso
+     * contrario muestra un mensaje de error y vuelve a iterar
+     * hasta que el usuario decida salirse.
+     */
+    public static void insertarPreguntaChatBot(){
+        
+        String preNodo, prePregunta, preRespuesta;
+        
+        while (true) {            
+            
+            preNodo = Comun.regexConfirm("[1-2]+", "Escriba el ID del Nodo donde añadir la pregunta", "Escriba un ID en el formato valido!");
+            if (preNodo == null) {
+                return;
+            }
+            
+            prePregunta = Comun.regexConfirm(".+", "Escriba la nueva Pregunta", "El campo no puede ir vacio!");
+            if (prePregunta == null) {
+                return;
+            }
+            
+            preRespuesta = Comun.regexConfirm(".+", "Escriba la Respuesta a:\n" + prePregunta, "El campo no puede ir vacio!");
+            if (preRespuesta == null) {
+                return;
+            }
+            
+            if (chatBot.insertarPregunta(preNodo, prePregunta, preRespuesta)) {
+                JOptionPane.showMessageDialog(
+                        null, 
+                        ("Nueva Pregunta creada con exito!"), 
+                        "Banco ABC", 
+                        JOptionPane.INFORMATION_MESSAGE);
+                return;
+            }else{
+                JOptionPane.showMessageDialog(
+                        null, 
+                        ("No se puede añadir la pregunta al nodo " + preNodo + "\nIntente con otro!"), 
+                        "Banco ABC", 
+                        JOptionPane.ERROR_MESSAGE);
+            }
+            
+            
+            
+        }
+        
+        
+    }
+    
+    /**
+     * Este método prepara las preguntas para un nodo determinado en el árbol 
+     * del chatbot. Se solicita al usuario que ingrese el ID del nodo y 
+     * las preguntas para ese nodo se recuperan del chatbot. 
+     * Si el nodo existe y tiene preguntas, se llama al método 
+     * {@code mostrarPreguntasChatbot()} para mostrar las preguntas al usuario.
+     */
+    public static void prepararPreguntasChatbot(){
+        
+        String preNodo;
+        ListaPreguntas lista;
+        while (true) {            
+            preNodo = Comun.regexConfirm("[1-2]+", "Escriba el ID del Nodo para ver las preguntas", "Escriba un ID en el formato valido!");
+            if (preNodo == null) {
+                return;
+            }
+            
+            lista = chatBot.getListapreguntas(preNodo);
+            if (lista != null) {
+                mostrarPreguntasChatbot(lista);
+                return;
+            } else{
+                JOptionPane.showMessageDialog(
+                        null, 
+                        ("El Nodo " + preNodo + " No se encontro o No tiene preguntas.\nIntente con otro!"), 
+                        "Banco ABC", 
+                        JOptionPane.ERROR_MESSAGE);
+            }
+            
+        }
+        
+        
     }
 
     //OtrosMetodos
